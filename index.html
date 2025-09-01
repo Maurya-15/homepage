@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Swiftfolios: Institutional and HNI Broking & Research">
+  <meta property="og:description" content="Quality Research | Customised Execution | Institutional Framework">
+  <meta property="og:url" content="http://www.swiftfolios.com">
+  <meta property="og:image" content="https://www.swiftfolios.com/static-content/assets/images/swiftfolios-logo.png">
+  <meta property="og:image:width" content="150">
+  <meta property="og:image:height" content="150">
+  <!-- <link rel="stylesheet" type="text/css" href="./static-content/style.css" />
+  <link rel="stylesheet" type="text/css" href="./static-content/mfhome.css" /> -->
+  <link rel="stylesheet" type="text/css" href="./static-content/index.css" />
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.2.20171210/classList.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js.map"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+  <title>Swiftfolios: Stocks & Mutual Funds</title>
+</head>
+
+<body>
+  <div class="hero-sections">
+    <div class="hero-section1">
+      <div class="section1-header">
+        <div class="header-left">
+          <div class="logoleft">
+            <img class="brand-logo" src="./static-content/assets/images/swiftfolios-logo.png" />
+          </div>
+          <!-- <div class="page-links">
+            <a href="https://www.swiftfolios.com">
+              <div class="login-button"><span>Stocks</span></div>
+            </a>
+            <a href="https://www.swiftfolios.com/access/login">
+              <div class="login-button"><span>Mutual Funds</span></div>
+            </a>
+          </div> -->
+        </div>
+        <div class="accountlinks">
+          <a href="https://www.swiftfolios.com/access/signup">
+            <div class="login-button">
+              <span>Create Account</span>
+            </div>
+          </a>
+          <a href="https://www.swiftfolios.com/access/login">
+            <div class="login-button">
+              <span>Login</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="section1-content">
+        <div class="nifty50">
+          <iframe class="marketrates" id="marketrates" src="./static-content/marketrates.html"></iframe>
+        </div>
+        <!-- <div class="brand-logo-name">
+          <p class="brand-name">
+            Investments that work for you!
+          </p>
+        </div> -->
+        <div class="brand-logo-name">
+          <p class="brand-name">
+            <span id="typed-text"></span>
+          </p>
+        </div>
+        <div class="brand-info" data-aos="fade-up" data-aos-delay="50000">
+          <div class="tagline">
+            <p class="tagline1">
+              Institutional & HNI Broking, and Private Wealth with Mutual Funds
+            </p>
+            <p class="tagline2">with spectacular smoothness in execution</p>
+          </div>
+          <div class="brand-social">
+            <a href="https://api.whatsapp.com/send?phone=918160080658">
+              <img src="./static-content/assets/icons/whatsapp.svg" alt="" />
+            </a>
+            <a href="mailto:hello@swiftfolios.com?Subject=Hello!">
+              <img src="./static-content/assets/icons/telegram.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-section2">
+      <div class="section-header">Our Stock Execution Services</div>
+      <div class="services" data-aos="fade-down" data-aos-delay="500">
+        <div class="service-box">
+          <div class="service-title">Family Offices</div>
+          <div class="service-desc">Tailored solutions for the family office setup where we create seamless trading,
+            portfolio execution and reporting experiences.</div>
+        </div>
+        <div class="service-box">
+          <div class="service-title">HNI Investments</div>
+          <div class="service-desc">We do what matters most to an HNI- provide a personalised, curated service built on
+            principles of a fiduciary.</div>
+        </div>
+        <div class="service-box">
+          <div class="service-title">AIF Custody Trades</div>
+          <div class="service-desc">From CP Code trading, to reporting to a Custodian and the Exchange, we take extra
+            steps that large trades are given due care.</div>
+        </div>
+      </div>
+
+      <div class="services" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-box">
+          <div class="service-title">PMS Custody Trades</div>
+          <div class="service-desc">Our systems have capabilities to generate trades for each PMS client based on a
+            model
+            portfolio, and execute via bulk orders.</div>
+        </div>
+        <div class="service-box">
+          <div class="service-title">FPI Custody Trades</div>
+          <div class="service-desc">From setting up Custodial accounts, registering with SEBI as an FPI, and opening
+            trading accounts, we do it all.</div>
+        </div>
+      </div>
+      <div class="tagline" data-aos="fade-up" data-aos-delay="700">
+        <p class="tagline1">We handle end-to-end custodial account setups for AIFs, PMSs, and FPIs</p>
+        <p class="tagline2">Leave it to us. We will take you from 0 to 1</p>
+      </div>
+      <div class="trade-types">
+        <div class="trade-types-main" id="tradeTypes"></div>
+        <div class="subtext">
+          Happy to take on long execution assignments where we work on large trades for elongated periods of time.
+        </div>
+      </div>
+    </div>
+    <div class="rect1">
+      <div class="leftside">
+        <div class="parent">
+          <div class="excl">Exclusive . Personalised . Human Touch</div>
+          <div class="private_wealth">Private Wealth Management</div>
+          <div class="with_mutual">with mutual funds.
+            <div class="deserve">because you deserve more.</div>
+          </div>
+        </div>
+        <div class="para">
+          <span>In the broken financial services industry where everyone is out there to sell
+            something to you, we will be the refreshing change where we want to be of
+            <span class="b">service</span>.</span>
+          <span>Our promise, with you<span class="b"> all the way.</span></span>
+        </div>
+      </div>
+      <div class="mainrightside">
+        <div class="topclientsdiv">
+          <div class="topdiv">
+            <div class="topclientstext">Top clients</div>
+            <div class="topclientsrow">
+              <div class="topclientsimg">
+                <img src="./static-content/homepageImages/MM.jpg" />
+                <div class="rs"><span>Rs. 50+ Lacs<br>Ahmedabad</span></div>
+              </div>
+              <!-- <div class="rs"><span>Rs. 30+ Lacs, Ahmedabad</span></div> -->
+            </div>
+            <div class="averagesize">Average account size- Rs. 20 Lacs</div>
+          </div>
+          <div class="bottomdiv">
+            <div class="fifteen">Rs. 75,000 SIP for 15 years</div>
+            <div class="fifteen">Rs. 60 Lacs Lumsum in 15 years</div>
+            <div class="club">Building India’s&nbsp;<span class="five">5</span>&nbsp;Cr. club</div>
+          </div>
+        </div>
+        <div class="meet"><a href="https://calendly.com/swiftfolios/30min" target="_blank">
+            <div class="meetimg">
+              <img src="./static-content/homepageImages/meet.svg" />
+            </div>
+            <div class="slottext">Book an introductory call</div>
+        </div></a>
+      </div>
+    </div>
+    <div class="rect2" id="rect2">
+      <div class="content">
+        <!-- <p class="content__container__text">True</p> -->
+        <div class="content__container">
+          <ul class="content__container__list">
+            <li class="content__container__list__item">Transparency</li>
+            <li class="content__container__list__item">Ethics</li>
+            <li class="content__container__list__item">Accountability</li>
+            <li class="content__container__list__item">Due Diligence</li>
+            <li class="content__container__list__item">Fiduciary Duty</li>
+            <li class="content__container__list__item">Customised</li>
+            <li class="content__container__list__item">Personal Touch</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tagline">On a mission to offer amazing Mutual Fund investing experiences, not painful ones.</div>
+    </div>
+    <div class="rect3" id="rect3">
+      <div class="rect3title">#swiftPortfolios<span>Mutual fund portfolios built with care</span></div>
+      <div class="rect3body">
+        <div class="recthreeleft">
+          <div class="rect3lower">
+            <div class="chartarea">
+              <div class="charttext" id="charttext"></div>
+              <div class="charttextdescription" id="charttextdescription"></div>
+              <canvas id="myChart"></canvas>
+            </div>
+            <div class="profiles">
+              <div class="profilebox" id="profile1" onclick="profile1()">
+                <div class="profileboxright">
+                  <div>Mixed Asset</div>
+                  <div class="profileboxrightage">30% Equity</div>
+                  <div><span style="color: violet;font-weight: 900;">Violet</span> Portfolio</div>
+                </div>
+              </div>
+              <div class="profilebox" id="profile2" onclick="profile2()">
+                <div class="profileboxright">
+                  <div>Mixed Asset</div>
+                  <div class="profileboxrightage">50% Equity</div>
+                  <div><span style="color: #b66ced;font-weight: 900;">Indigo</span> Portfolio</div>
+                </div>
+              </div>
+              <div class="profilebox" id="profile3" onclick="profile3()">
+                <div class="profileboxright">
+                  <div>Mixed Asset</div>
+                  <div class="profileboxrightage">70% Equity</div>
+                  <div><span style="color: #00a8ff;font-weight: 900;">Blue</span> Portfolio</div>
+                </div>
+              </div>
+              <div class="profilebox" id="profile4" onclick="profile4()">
+                <div class="profileboxright">
+                  <div>Mixed Asset</div>
+                  <div class="profileboxrightage">90% Equity</div>
+                  <div><span style="color: #67d098;font-weight: 900;">Green</span> Portfolio</div>
+                </div>
+              </div>
+              <div class="profilebox" id="profile5" onclick="profile5()">
+                <div class="profileboxright">
+                  <div>Indian</div>
+                  <div class="profileboxrightage">100% Equity</div>
+                  <div><span style="color: #ffca00;font-weight: 900;">Yellow</span> Portfolio</div>
+                </div>
+              </div>
+              <div class="profilebox" id="profile6" onclick="profile6()">
+                <div class="profileboxright">
+                  <div>Global</div>
+                  <div class="profileboxrightage">100% Equity</div>
+                  <div><span style="color: orange;font-weight: 900;">Orange</span> Portfolio</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="recthreeright">
+          <div class="rect3bottom">Create your own <b style="font-weight:900;">Customised Portfolios</b> too!</div>
+          <div class="rect3bottombottom"><img src="./static-content/homepageImages/risk.svg"><a
+              href="./static-content/risk_profile.html" target="_blank">Not Sure? Try
+              Our Risk Profiler</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="rect4" id="rect4">
+      <div class="rect4firstrow">One Objective<span>To help you avoid mistakes</span></div>
+      <div class="rect4secondrow">We are not in the business of doing funny things with your money. Doing simple things
+        right time and again has proven to produce remarkably good results. In fact, our recommendations will almost
+        sound too simple to be true.</div>
+      <div class="rect4thirdrow">If your AUM is above Rs. 20 Lakhs, your tax filing is on us for free,
+        <span>complimentary!</span>
+      </div>
+    </div>
+    <div class="rect6" id="rect6">
+      <div class="rect6firstrow">Still got questions? We're here to help.</div>
+      <nav class="accordion arrows">
+        <input type="radio" name="accordion" id="cb1" />
+        <section class="box">
+          <label class="box-title" for="cb1">Can we execute CP code trades?</label>
+          <label class="box-close" for="acc-close"></label>
+          <div class="box-content">Absolutely, yes, we have full capability to execute CP code trades- called custodial
+            trade executions.</div>
+        </section>
+        <input type="radio" name="accordion" id="cb2" />
+        <section class="box">
+          <label class="box-title" for="cb2">Is Swiftfolios a broker?</label>
+          <label class="box-close" for="acc-close"></label>
+          <div class="box-content">We are a NSE and BSE registered sub-broker with Tipsons Stock Brokers Pvt. Ltd.
+            However, all your dealings will be with Swiftfolios and not Tipsons.</div>
+        </section>
+        <input type="radio" name="accordion" id="cb3" />
+        <section class="box">
+          <label class="box-title" for="cb3">Can I invest in custom mutual fund portfolios?</label>
+          <label class="box-close" for="acc-close"></label>
+          <div class="box-content">Absolutely, you may create your custom portfolios, choose your own funds and also
+            create multiple portfolios for various goals.</div>
+        </section>
+        <input type="radio" name="accordion" id="cb4" />
+        <section class="box">
+          <label class="box-title" for="cb4">Can I invest in SIP?</label>
+          <label class="box-close" for="acc-close"></label>
+          <div class="box-content">Yes, you will be able to invest in SIPs where you may select your chosen SIP
+            deduction date, length of SIP in months and amount of installment as well.</div>
+        </section>
+        <input type="radio" name="accordion" id="cb5" />
+        <section class="box">
+          <label class="box-title" for="cb5">What is the investment process?</label>
+          <label class="box-close" for="acc-close"></label>
+          <div class="box-content">First we open an account, then activate it in 2 working days and you are all set to
+            invest. We will set up ACH mandates for SIP investing as well.</div>
+        </section>
+        <input type="radio" name="accordion" id="cb6" />
+        <section class="box">
+          <label class="box-title" for="cb6">What reports will I get and will there be periodic reviews?</label>
+          <label class="box-close" for="acc-close"></label>
+          <div class="box-content">You may download factsheets and capital gains report from the app or website.
+            Additionally, every Friday, you will receive a statement on your email.</div>
+        </section>
+        <input type="radio" name="accordion" id="cb7" />
+        <section class="box">
+          <label class="box-title" for="cb7">What is the minimum investment required to invest with Swiftfolios?</label>
+          <label class="box-close" for="acc-close"></label>
+          <div class="box-content">While we are respectful of all quantums, we feel that we will not be able to justify
+            a personalised service below Rs. 10 Lacs of day 1 investments.</div>
+        </section>
+        <input type="radio" name="accordion" id="cb8" />
+        <section class="box">
+          <label class="box-title" for="cb8">Is there a free mutual fund portfolio review service?</label>
+          <label class="box-close" for="acc-close"></label>
+          <div class="box-content">Yes, we can do a full free portfolio review once you have opened your account and
+            proven that you have funds to invest.</div>
+        </section>
+        <input type="radio" name="accordion" id="acc-close" />
+      </nav>
+      <div class="rect6secondrow"><a
+          href="https://api.whatsapp.com/send?phone=918160080658&amp;text=I%20need%20help%20with%20managing%20my%20wealth.%20Please%20get%20in%20touch%20with%20me%20at%20the%20earliest."
+          target="_blank"><img src="./static-content/homepageImages/whatsapp.svg"><span>Reach Us</a></span></div>
+    </div>
+    <div class="rect7" id="rect7">
+      <div class="rect7inner">
+        <div class="rect7firstrow">99<span>%</span></div>
+        <div class="rect7secondrow">client retention record in two years of operations.<span></span></div>
+        <div class="rect7thirdrow">We help you do simple things with your money, we don’t over-promise, and
+          therefore we will not under-deliver. Best of it, you will always have
+          someone to be a sounding board if you find yourselves with questions
+          on what to do with your money.</div>
+        <div class="rect7fourthrow">Giving you one less thing to think about as you concentrate on what matters.</div>
+      </div>
+    </div>
+
+
+    <div class="hero-footer">
+      <div class="footer-line"></div>
+      <div class="footer-content">
+        <div class="footer-left">
+        </div>
+        <div class="footer-right">
+          <div class="reach-us">
+            <p>Reach Us</p>
+            <div class="reach-icons">
+              <a href="https://api.whatsapp.com/send?phone=918160080658">
+                <img src="./static-content/assets/icons/whatsapp.png" alt="" />
+              </a>
+              <a href="mailto:hello@swiftfolios.com?Subject=Hello!">
+                <img src="./static-content/assets/icons/send.png" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="backoffice-login">
+            <p>Back Office Login</p>
+            <div class="backoffice-icons">
+              <a href="https://www.swiftfolios.com/access/superuser">
+                <img src="./static-content/assets/icons/logout.png" alt="" />
+              </a>
+              <a href="https://www.swiftfolios.com/admin/login">
+                <img src="./static-content/assets/icons/gear.png" alt="" />
+              </a>
+              <a href="https://www.swiftfolios.com/backoffice/login">
+                <img src="./static-content/assets/icons/dealer.png" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer">Mutual fund investments are subject to market risks.
+      Please read the scheme information and other related documents carefully
+      before investing. Past performance is not indicative of future returns. Please
+      consider your specific investment requirements before choosing a fund, or designing
+      a portfolio that suits your needs. The value of investments can go down in value
+      as well as up, so you could get back less than you invest. It is therefore
+      important that you understand the risks and commitments. <br><br>
+      This website aims to
+      provide information to help you make your own informed decisions. It does not provide
+      personal advice based on your circumstances. If you are unsure of how suitable an
+      investment is for you, please seek personal advice from your Financial Advisor.
+      Nothing in this website shall be considered a solicitation to buy or an offer to sell a
+      security, or any other product or service, to any person in any jurisdiction where
+      such offer, solicitation, purchase or sale would be unlawful under the laws of such
+      jurisdiction. Tax rules referred to are those that currently apply unless otherwise
+      stated, they can change over time and any benefit to you will depend on your circumstances.<br><br>
+
+      Mutual Fund Investments are done under Yottol Financial Services Private Limited (ARN-128314)<br><br><br>
+
+      Investments in securities market are subject to market risk, read all the related documents carefully before
+      investing. We collect, retain, and use your contact information for legitimate business purposes only, to contact
+      you and to
+      provide you information & latest updates regarding our products & services. We do not sell or rent your contact
+      information to third parties.
+      Please note that by submitting the above-mentioned details, you are authorising us to Call/SMS you even though you
+      may be registered under DND.
+      We shall Call/SMS you for a period of 12 months.<br><br>
+      Stock broking offered as a sub-broker named GreatBear Ventures Private Limited (NSE: AP2448000481 and BSE:
+      AP2448000481) under Tipsons Stock
+      Brokers Private Limited, SEBI Registration Number: INZ000217531. Compliance officer: Diganta Joshi,
+      compliance@tipsonsbroking.com, +919909912166<br><br>
+
+      Brokerage will not exceed the SEBI prescribed limit.<br><br>
+
+      Annexure A Investor Charter
+      <a href="https://www.tipsons.com/files/2022/06/Annexure%20A%20Investor%20Charter%20For%20Stock%20Broker.pdf"
+        target="_blank">Stock Broker</a>
+      <a href="https://tipsonsbroking.com/wp-content/uploads/2024/12/SEBI-CIR-Investor-Charter.pdf"
+        target="_blank">Depository</a>
+      <a href="https://tipsonsbroking.com/sebi-investor-charter/" target="_blank">SEBI Investor Charter</a>
+      <a href="https://tipsonsbroking.com/wp-content/uploads/2024/02/Advisory-for-investors.pdf"
+        target="_blank">Advisory for investors</a>
+
+    </div>
+
+  </div>
+
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('tradeTypes');
+      const items = ["big trades", "small trades", "block deals", "bulk deals"];
+
+      const fadeIn = 1000;   // ms to fade in to #011627
+      const fadeOut = 1000;  // ms to fade back to #fafafa
+      const total = fadeIn + fadeOut;
+
+      // Build spans once (better performance & avoids timing issues)
+      container.innerHTML = items.map(i => `<span>${i}</span>`).join(' . ');
+      const spans = Array.from(container.querySelectorAll('span'));
+
+      let index = 0;
+      let prev = null;
+
+      function cycle() {
+        // clear previous highlight (if any)
+        if (prev !== null) spans[prev].classList.remove('highlight');
+
+        const current = spans[index];
+
+        // Ensure the browser paints the base color first:
+        // requestAnimationFrame -> force reflow -> then add class to trigger transition
+        requestAnimationFrame(() => {
+          void current.offsetWidth;      // FORCE reflow (ensures prior style applied)
+          current.classList.add('highlight'); // triggers fade-in
+        });
+
+        // After fadeIn ms, remove the class to fade back out
+        setTimeout(() => {
+          current.classList.remove('highlight');
+        }, fadeIn);
+
+        prev = index;
+        index = (index + 1) % spans.length;
+      }
+
+      // Small initial delay so initial DOM paint happens before the first cycle
+      setTimeout(() => {
+        cycle();
+        setInterval(cycle, total);
+      }, 50);
+    });
+  </script>
+  <script>
+    const images = [
+      "./static-content/homepageImages/US.jpg",
+      "./static-content/homepageImages/MP.jpg",
+      "./static-content/homepageImages/KM.jpg",
+      "./static-content/homepageImages/KD.jpg",
+      "./static-content/homepageImages/MM.jpg"
+    ];
+    const text = [
+      "Rs. 30+ Lacs<br>Ahmedabad",
+      "Rs. 20+ Lacs<br>Surendranagar",
+      "Rs. 15+ Lacs<br>Surendranagar",
+      "Rs. 15+ Lacs<br>Ahmedabad",
+      "Rs. 50+ Lacs<br>Ahmedabad"
+    ];
+
+    let i = 0;
+    const imgEl = $(".topclientsimg img");
+    const textEl = $(".rs span");
+
+    // ✅ Preload images
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    function changeContent() {
+      if (document.visibilityState === 'hidden') return;
+
+      // Fade out image + text
+      imgEl.fadeOut(500);
+      textEl.fadeOut(500, () => {
+        // Update after fade-out completes
+        i = (i + 1) % images.length;
+        imgEl.attr("src", images[i]).fadeIn(500);
+        textEl.html(text[i]).fadeIn(500);
+      });
+    }
+
+    setInterval(changeContent, 3000);
+  </script>
+  <script>
+    let pos = "";
+    let al = "";
+    let charttextdescriptions = ""; // stores HTML list
+
+    $(document).ready(function () {
+      if ($(window).width() < 1050) {
+        pos = 'right';
+        al = 'center';
+        cutpercentage = 120;
+      } else if ($(window).width() < 1400 && $(window).width() > 1050) {
+        pos = 'right';
+        al = 'end';
+        cutpercentage = 120;
+      } else if ($(window).width() < 2000 && $(window).width() > 1400) {
+        pos = 'right';
+        al = 'end';
+        cutpercentage = 130;
+      } else if ($(window).width() > 2000) {
+        pos = 'right';
+        al = 'end';
+        cutpercentage = 180;
+      }
+    });
+
+    let CHART_REF = false;
+
+    $(document).ready(function () {
+      profile1(); // default load profile1
+    });
+
+    function removeborder() {
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById(`profile${i}`).style.border = "1px solid #f1f1f100";
+      }
+    }
+
+    // helper: converts array to HTML <ul>
+    function toHTMLList(arr) {
+      return "<ul><li>" + arr.join("</li><li>") + "</li></ul>";
+    }
+
+    function updateChartDescriptions(labels) {
+      charttextdescriptions = toHTMLList(labels);
+      document.getElementById("charttextdescription").innerHTML = charttextdescriptions;
+    }
+
+    function profile1() {
+      document.getElementById("charttext").innerHTML =
+        '<span style="color: violet;font-weight: 900;">Violet</span> Portfolio<br>Mixed Asset<br><span>30% Equity</span><br><br>Expected Return<br><span style="font-weight: 900;font-size:1rem;">8%</span>';
+
+      let labels = ['Arbitrage (70%)', 'Large Cap (10%)', 'Flexi Cap (10%)', 'Mid Cap (10%)'];
+      updateChartDescriptions(labels);
+
+      removeborder();
+      document.getElementById("profile1").style.border = "1px solid violet";
+      drawChart([70, 10, 10, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+    }
+
+    function profile2() {
+      document.getElementById("charttext").innerHTML =
+        '<span style="color: #b66ced;font-weight: 900;">Indigo</span> Portfolio<br>Mixed Asset<br><span>50% Equity</span><br><br>Expected Return<br><span style="font-weight: 900;font-size:1rem;">10.5%</span>';
+
+      let labels = ['Arbitrage (50%)', 'Large Cap (30%)', 'Mid Cap (10%)', 'Small Cap (10%)'];
+      updateChartDescriptions(labels);
+
+      removeborder();
+      document.getElementById("profile2").style.border = "1px solid #b66ced";
+      drawChart([50, 30, 10, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+    }
+
+    function profile3() {
+      document.getElementById("charttext").innerHTML =
+        '<span style="color: #00a8ff;font-weight: 900;">Blue</span> Portfolio<br>Mixed Asset<br><span>70% Equity</span><br><br>Expected Return<br><span style="font-weight: 900;font-size:1rem;">12%</span>';
+
+      let labels = ['Arbitrage (30%)', 'Large Cap (40%)', 'Mid Cap (20%)', 'Small Cap (10%)'];
+      updateChartDescriptions(labels);
+
+      removeborder();
+      document.getElementById("profile3").style.border = "1px solid blue";
+      drawChart([30, 40, 20, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+    }
+
+    function profile4() {
+      document.getElementById("charttext").innerHTML =
+        '<span style="color: #67d098;font-weight: 900;">Green</span> Portfolio<br>Mixed Asset<br><span>90% Equity</span><br><br>Expected Return<br><span style="font-weight: 900;font-size:1rem;">14%</span>';
+
+      let labels = ['Arbitrage (10%)', 'Large Cap (50%)', 'Mid Cap (20%)', 'Small Cap (20%)'];
+      updateChartDescriptions(labels);
+
+      removeborder();
+      document.getElementById("profile4").style.border = "1px solid #67d098";
+      drawChart([10, 50, 20, 20], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+    }
+
+    function profile5() {
+      document.getElementById("charttext").innerHTML =
+        '<span style="color: #ffca00;font-weight: 900;">Yellow</span> Portfolio<br>Indian<br><span>100% Equity</span><br><br>Expected Return<br><span style="font-weight: 900;font-size:1rem;">16%</span>';
+
+      let labels = ['Large Cap (40%)', 'Flexi Cap (30%)', 'Mid Cap (20%)', 'Small Cap (10%)'];
+      updateChartDescriptions(labels);
+
+      removeborder();
+      document.getElementById("profile5").style.border = "1px solid yellow";
+      drawChart([40, 30, 20, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+    }
+
+    function profile6() {
+      document.getElementById("charttext").innerHTML =
+        '<span style="color: orange;font-weight: 900;">Orange</span> Portfolio<br>Global<br><span>100% Equity</span><br><br>Expected Return<br><span style="font-weight: 900;font-size:1rem;">18%</span>';
+
+      let labels = ['Large Cap (40%)', 'Mid Cap (20%)', 'Small Cap (10%)', 'Global (30%)'];
+      updateChartDescriptions(labels);
+
+      removeborder();
+      document.getElementById("profile6").style.border = "1px solid orange";
+      drawChart([40, 20, 10, 30], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+    }
+
+  </script>
+  <!-- Pie Chart -->
+  <script>
+    function drawChart(percentageData, backgroundColours, chartLabels) {
+      Chart.defaults.color = 'rgba(1, 22, 39, 0.9)';
+      const ctx = document.getElementById('myChart');
+      const data = {
+        datasets: [{
+          data: percentageData,
+          backgroundColor: backgroundColours,
+          hoverOffset: 5,
+        }],
+        labels: chartLabels
+      };
+      const config = {
+        type: 'doughnut',
+        data: data,
+        options: {
+          responsive: true,
+          aspectRatio: false,
+          plugins: {
+            title: {
+              display: false
+            },
+            tooltip: {
+              backgroundColor: '#f1f1f1',
+              borderColor: '#e8e8e8',
+              borderWidth: 1,
+              titleColor: 'rgba(1, 22, 39, 0.9)',
+              bodyColor: 'rgba(1, 22, 39, 0.9)',
+              bodyFont: {
+                family: 'Open Sans',
+              },
+              displayColors: false,
+              padding: {
+                left: 10,
+                right: 10,
+                top: 10,
+                bottom: 10,
+              }
+            },
+            legend: {
+              display: true,
+              position: pos,
+              align: al,
+              borderRadius: 30,
+              labels: {
+                color: 'rgb(1, 22, 39, 1)',
+                boxWidth: 20,
+                boxHeight: 20,
+                padding: 10,
+                font: {
+                  size: 12,
+                  weight: 600,
+                  family: 'Open Sans',
+                },
+              }
+            },
+          },
+          layout: {
+            padding: {
+              left: 0,
+            },
+            position: 'left',
+          },
+          borderRadius: 15,
+          cutout: cutpercentage,
+          borderColor: 'none',
+          borderWidth: 0
+        }
+      };
+      //ctx.destroy();
+      if (CHART_REF) {
+        CHART_REF.destroy();
+      }
+
+      CHART_REF = new Chart(ctx, config);
+
+
+
+
+    }
+  </script>
+<script>
+  const pulsetext = "Investments that work for you!";
+  const speed = 100; // typing speed in ms
+  let increment = 0;
+
+  function typeWriter() {
+    if (increment < pulsetext.length) {
+      const span = document.createElement("span");
+      span.textContent = pulsetext.charAt(increment);
+      span.classList.add("fade-in");
+      document.getElementById("typed-text").appendChild(span);
+      increment++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  typeWriter();
+</script>
+</body>
+
+</html>

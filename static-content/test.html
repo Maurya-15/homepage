@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>COOKIES</h2>
+    <div id="cookie"></div>
+    <button id="delete">Delete Cookies</button>
+    <script>
+      function DisplayCookies() {
+        const cookie_text = document.getElementById("cookie");
+
+        cookie_text.innerHTML = "";
+
+        let cookies = {};
+        const doc_cookies = document.cookie;
+        doc_cookies.split(";").reduce((cookies, cookie) => {
+          const [name, value] = cookie.split("=").map((c) => c.trim());
+          console.log(name, value);
+          const p = document.createElement("p");
+          p.innerText = `${name} ===> ${value}`;
+          cookie_text.appendChild(p);
+        }, {});
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        DisplayCookies();
+      });
+
+      const button = document.getElementById("delete");
+      button.addEventListener("click", () => {
+        document.cookie.replace(/(?<=^|;).+?(?=\=|;|$)/g, (name) =>
+          location.hostname
+            .split(".")
+            .reverse()
+            .reduce(
+              (domain) => (
+                (domain = domain.replace(/^\.?[^.]+/, "")),
+                (document.cookie = `${name}=;max-age=0;path=/;domain=${domain}`),
+                domain
+              ),
+              location.hostname
+            )
+        );
+        DisplayCookies();
+        alert(document.cookie);
+      });
+    </script>
+  </body>
+</html>

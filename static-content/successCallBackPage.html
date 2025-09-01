@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://www.swiftfolios.com/favicon.ico">
+    <link rel="apple-touch-icon" type="image/png" href="https://www.swiftfolios.com/favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <title>Swiftfolios Transaction Confirmation</title>
+
+    <style>
+        * {
+            font-family: Open Sans;
+            letter-spacing: -0.5px;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            width: 100%;
+            margin: auto;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .video {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin: auto;
+        }
+
+        .Payment {
+            text-align: center;
+            width: 30%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            color: #011627;
+            border-radius: 3px;
+            height: fit-content;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .Payment p {
+            color: #011627;
+            font-size: 12px;
+            font-weight: 500;
+            margin: 5px;
+        }
+
+        .Payment b {
+            color: #011627;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        .Payment a {
+            color: #011627;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #e8e8e8;
+            padding: 7px 20px;
+            border-radius: 30px;
+        }
+
+        .Payment a:hover {
+            color: #ffffff;
+            border: 1px solid #3179F5;
+            background-color: #3179F5;
+        }
+
+        .confetti {
+            display: flex;
+            position: absolute;
+            left: 45%;
+            z-index: 0;
+        }
+
+        .body {
+            z-index: 100;
+        }
+
+
+        @media only screen and (max-width: 760px) {
+            .Payment {
+                text-align: center;
+                width: 90%;
+                margin: auto;
+                margin: auto;
+                /* margin-bottom: 75%; */
+                background-color: white;
+                padding: 20px;
+                color: #011627;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .checkmark {
+                margin: auto;
+                margin-top: 35%;
+                margin-bottom: 5%;
+
+            }
+
+            .Payment b {
+                color: #011627;
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: -1px;
+            }
+
+            .Payment p {
+                color: #011627;
+                font-size: 13px;
+                font-weight: 600;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="body">
+        <div class="video">
+            <video id="myVideo" autoplay muted>
+                <source src="assets/videos/verified.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="PaymentSuccess Payment">
+            <h1>Congratulations!</h1>
+            <p><b>Your payment has been successful.<br>You may close down this
+                    window.</b></br></br>Please wait for 1-3 days till
+                we confirm the transaction NAV as well as Units alloted. You will see the completed transaction (s) in
+                the 'Transactions' section of your Account Dashboard once we receive RTA (Registered Transfer Agency)
+                approval.</br></br>Confirmed units will be allocated within 1-2 business days.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    const video = document.getElementById("myVideo");
+    let playCount = 0;
+
+    video.addEventListener("ended", () => {
+        playCount++;
+        if (playCount < 5) {
+            video.currentTime = 0;  // restart video
+            video.play();           // play again
+        }
+    });
+</script>
+<script>
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            const sound = new Audio("assets/videos/pop.wav");
+            sound.play();
+        }, 1000); // 1000 ms = 1 second
+    });
+</script>

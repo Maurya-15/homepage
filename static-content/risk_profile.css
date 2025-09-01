@@ -1,0 +1,249 @@
+body {
+	background: white;
+	color: rgba(1, 22, 39, 0.9);
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	letter-spacing: -0.5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	display: block;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cccccc;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #cccccc;
+}
+
+/*
+font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Roboto Mono', monospace;*/
+
+.body-button {
+	background: #3179F5;
+	color: white;
+	font-size: 14px;
+	font-weight: 600;
+	width: fit-content;
+	padding: 10px 30px;
+	border-radius: 30px;
+	border: none;
+	margin: 0px;
+	cursor: pointer;
+	box-shadow: 1px 3px 5px #e8e8e8;
+}
+
+.container {
+	display: flex;
+	align-items: baseline;
+	width: 60%;
+	margin: 5% auto;
+}
+
+#options div {
+	font-size: 14px;
+	padding: 10px;
+	cursor: pointer;
+	font-weight: 500;
+	border: 1px solid #e8e8e8;
+	margin: 10px 0px;
+	border-radius: 10px;
+}
+
+#q1 #options div,
+#q13 #options div,
+#q14 #options div,
+#q6 #options div,
+#q11 #options div,
+#q12 #options div {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+#q1 #options div span,
+#q13 #options div span,
+#q14 #options div span,
+#q6 #options div span,
+#q11 #options div span,
+#q12 #options div span {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+#q1 #options div:hover span,
+#q13 #options div:hover span,
+#q14 #options div:hover span,
+#q6 #options div:hover span,
+#q11 #options div:hover span,
+#q12 #options div:hover span {
+	color: rgba(1, 22, 39, 0.9);
+}
+
+#q1 #options div:active span,
+#q13 #options div:active span,
+#q14 #options div:active span,
+#q6 #options div:active span,
+#q11 #options div:active span,
+#q12 #options div:active span {
+	color: rgba(1, 22, 39, 0.9);
+}
+
+#options div:hover {
+	background: #f1f1f1;
+	font-weight: 500;
+	transition: all 0.5s;
+	border-radius: 10px;
+}
+
+h1 {
+	margin-bottom: 40px;
+	font-weight: 600;
+	font-size: 18px;
+}
+
+h1 div {
+	font-size: 14px;
+}
+
+#buttons {
+	position: relative;
+	width: 60%;
+	display: flex;
+	margin: auto;
+	justify-content: left;
+	background: white;
+}
+
+#buttons span,
+#exit {
+	background: none;
+	color: rgba(1, 22, 39, 0.9);
+	font-size: 20px;
+	padding: 5px 10px;
+	border-radius: 3px;
+	border: none;
+	margin: 5px;
+	cursor: pointer;
+	box-shadow: none;
+}
+
+#buttons span {
+	padding-top: 3px;
+	font-size: 12px;
+	font-weight: 600;
+	/* color: #cccccc; */
+}
+
+#exit {
+	background: #ff0099;
+	position: relative;
+	/* top: 40px; */
+	/* right: 0; */
+	font-size: 14px;
+	font-weight: 500;
+	margin: 10px;
+	border: none;
+	border-radius: 30px;
+	padding: 10px 20px;
+	color: white;
+}
+
+table td {
+	padding: 8px;
+	text-align: left;
+	margin: 0;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+table tr {
+	font-size: 14px;
+	font-weight: 600;
+	color: rgba(1, 22, 39, 0.9);
+}
+
+table {
+	width: 100%;
+	border-spacing: 0;
+	padding: 0px;
+	border: 0.5px solid #e8e8e8;
+	border-radius: 10px;
+	margin: 15px 0;
+	padding: 10px;
+}
+
+table tr:nth-of-type(1) {
+	background-color: white;
+	color: rgba(1, 22, 39, 0.9);
+}
+
+@media only screen and (max-width: 1200px) {
+	.container {
+		width: 95%;
+		height: 80vh !important;
+		overflow-y: auto;
+	}
+
+	#buttons {
+		padding: 20px 10px;
+		position: absolute;
+		bottom: 0vh;
+		width: 100%;
+	}
+
+	#options div {
+		font-size: 14px;
+		padding: 10px 5px;
+		border-radius: 3px !important;
+		font-weight: 600;
+	}
+
+	#q1 #options div,
+	#q13 #options div,
+	#q14 #options div,
+	#q6 #options div,
+	#q11 #options div,
+	#q12 #options div {
+		font-size: 14px;
+		border-radius: 5px;
+		font-weight: 600;
+	}
+
+	#q1 #options div span,
+	#q13 #options div span,
+	#q14 #options div span,
+	#q6 #options div span,
+	#q11 #options div span,
+	#q12 #options div span {
+		font-size: 14px;
+		border-radius: 5px;
+		font-weight: 600;
+	}
+
+	h1 {
+		font-size: 16px;
+		margin-bottom: 20px;
+		font-weight: 700;
+	}
+
+	table {
+		padding: 0;
+	}
+
+	table td {
+		padding: 4px;
+		font-size: 12px;
+	}
+}

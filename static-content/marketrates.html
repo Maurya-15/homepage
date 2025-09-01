@@ -1,0 +1,626 @@
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" type="image/png" href="https://mf.swiftfolios.com/favicon.ico">
+    <link rel="icon" type="image/png" href="https://mf.swiftfolios.com/favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="https://mf.swiftfolios.com/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Air (Stocks)</title>
+    <style type="text/css">
+        * {
+            color: rgba(1, 22, 39, 0.7);
+            font-family: 'Open Sans', sans-serif !important;
+            margin: 0px;
+        }
+
+        a {
+            color: rgba(1, 22, 39, 0.9);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            display: none;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #ffffff;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffffff;
+        }
+
+        .positive {
+            color: #00d72f;
+            font-weight: 600;
+        }
+
+        .negative {
+            color: #e91e63;
+            font-weight: 600;
+
+        }
+
+        .firstpartbottom .indexlevel {
+            display: flex;
+        }
+
+        .price__digit {
+            overflow: hidden;
+            margin: 0px;
+        }
+
+        .price__digit__column {
+            display: flex;
+            flex-direction: column;
+            transition: 1s;
+        }
+
+        .digit__box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .firstpartbottom {
+            display: flex;
+            width: 100%;
+            margin: auto;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100%;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .firstpartbottom .indexname {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .firstpartbottom .indexlevel {
+            font-size: 20px;
+            font-weight: 700;
+            width: 100%;
+            color: rgba(1, 22, 39, 0.7);
+            letter-spacing: -1px;
+            justify-content: flex-start;
+        }
+
+        .firstpartbottom .indexlevelper {
+            font-size: 12px;
+            font-weight: 700;
+            width: 100%;
+            margin-left: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .marketstatus .marketstatusbottom {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+
+        }
+
+        .rightdata {
+            width: 100%;
+            text-align: left;
+        }
+
+        .marketstatus {
+            width: 175px;
+            /*box-shadow: 1px 3px 5px #e8e8e8;*/
+            margin: 0%;
+            padding: 1%;
+            border-radius: 3px;
+            /*border:1px solid #e8e8e8;*/
+            display: flex;
+        }
+
+        .marketstatus .exchangeimagense,
+        .marketstatus .exchangeimagebse {
+            align-items: center;
+            display: flex;
+        }
+
+        .marketstatus .exchangeimagebse img {
+            width: 35px;
+            margin-right: 5px;
+            display: none;
+        }
+
+        .marketstatus .exchangeimagense img {
+            width: 20px;
+            margin-right: 5px;
+            display: none;
+        }
+
+        .time {
+            font-weight: 500;
+            font-size: 10px;
+            margin-left: 10px;
+            margin-bottom: 15px;
+            text-align: left;
+            display: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .firstpartbottom {
+                display: flex;
+                width: 100%;
+                margin: auto;
+                justify-content: left;
+                align-items: center;
+                height: 100%;
+                border-radius: 5px;
+                text-align: left;
+            }
+
+            .marketstatus .marketstatusbottom {
+                display: flex;
+                width: 100%;
+                align-items: flex-end;
+                flex-direction: column;
+                justify-content: flex-end;
+                text-align: left;
+            }
+
+            .firstpartbottom .indexlevel {
+                font-size: 16px;
+                font-weight: 700;
+                width: 100%;
+                color: rgba(1, 22, 39, 0.7);
+                letter-spacing: -1px;
+                justify-content: flex-start;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="time">As of <span id="current-time"></span></div>
+    <div class="firstpartbottom">
+
+
+    </div>
+</body>
+
+
+<script>
+    $(document).ready(function () {
+
+        const exchangelist = [
+            {
+                'exchange_stock': 'Nifty 50',
+                'exchange_name': 'NSE',
+                'exchange_code': 1,
+                'exchange_token': 26000
+            }/*,
+    {
+        'exchange_stock': 'Sensex',
+        'exchange_name': 'BSE',
+        'exchange_code': 6,
+        'exchange_token': 1
+    },
+    {
+        'exchange_stock': 'Nifty Bank',
+        'exchange_name': 'NSE',
+        'exchange_code': 1,
+        'exchange_token': 26009
+    },
+    {
+        'exchange_stock': 'BSE Midcap',
+        'exchange_name': 'BSE',
+        'exchange_code': 6,
+        'exchange_token': 30
+    },
+    {
+        'exchange_stock': 'BSE Smallcap',
+        'exchange_name': 'NSE',
+        'exchange_code': 6,
+        'exchange_token': 31
+    }*/
+        ];
+
+        let indexvalues = {};
+
+        $('.index_values').each(function () {
+            indexvalues[$(this).attr('id')] = this.value;
+        })
+
+
+        const exchangewrapper = $('.firstpartbottom');
+
+        exchangelist.map((exchange) => {
+            exchangewrapper.append(`<div class="marketstatus" id="${exchange.exchange_stock.toLowerCase().replace(' ', '_')}">
+            <div class="exchangeimagense"></div>
+            <div class="rightdata">
+                <div class="indexname">${exchange.exchange_stock}</div>
+                <div class="marketstatusbottom">
+                    <div class="indexlevel">0.00</div>
+                    <div class="indexlevelper">0.00% (0.00)</div>
+                </div>
+            </div>
+        </div>`)
+        });
+
+
+        const MarketDataStructure = [
+
+            {
+                field: 'instrument_token',
+                start: 2,
+                end: 6,
+                type: 'n'
+            },
+            {
+                field: 'last_traded_price',
+                start: 6,
+                end: 10,
+                type: 'p'
+            },
+            {
+                field: 'last_traded_time',
+                start: 10,
+                end: 14,
+                type: 't'
+            },
+            {
+                field: 'last_traded_quantity',
+                start: 14,
+                end: 18,
+                type: 'n'
+            },
+            {
+                field: 'trade_volume',
+                start: 18,
+                end: 22,
+                type: 'n'
+            },
+            {
+                field: 'best_bid_price',
+                start: 22,
+                end: 26,
+                type: 'p'
+            },
+            {
+                field: 'best_bid_quantity',
+                start: 26,
+                end: 30,
+                type: 'n'
+            },
+            {
+                field: 'best_ask_price',
+                start: 30,
+                end: 34,
+                type: 'p'
+            },
+            {
+                field: 'best_ask_quantity',
+                start: 34,
+                end: 38,
+                type: 'n'
+            },
+            {
+                field: 'total_buy_quantity',
+                start: 38,
+                end: 46,
+                type: 'n'
+            },
+            {
+                field: 'total_sell_quantity',
+                start: 46,
+                end: 54,
+                type: 'n'
+            },
+            {
+                field: 'average_trade_price',
+                start: 54,
+                end: 58,
+                type: 'p'
+            },
+            {
+                field: 'exchange_timestamp',
+                start: 58,
+                end: 62,
+                type: 't'
+            },
+            {
+                field: 'open_price',
+                start: 62,
+                end: 66,
+                type: 'p'
+            },
+            {
+                field: 'high_price',
+                start: 66,
+                end: 70,
+                type: 'p'
+            },
+            {
+                field: 'low_price',
+                start: 70,
+                end: 74,
+                type: 'p'
+            },
+            {
+                field: 'close_price',
+                start: 74,
+                end: 78,
+                type: 'p'
+            },
+            {
+                field: 'yearly_high_price',
+                start: 78,
+                end: 82,
+                type: 'p'
+            },
+            {
+                field: 'yearly_low_price',
+                start: 82,
+                end: 86,
+                type: 'p'
+            }
+        ];
+
+        const readMarketData = (data, indexvalues) => {
+
+            let multiplier = getMultiplier(1)
+            let response = {}
+
+            //add data fetched from api
+            MarketDataStructure.forEach(m => {
+                response[m.field] = convertIntoFormat(data, m.start, m.end, m.type, multiplier);
+            });
+
+            //get changed price
+            let PC = response['close_price'];
+
+            let changed_amount = convertIntoNumber(response['last_traded_price']) - convertIntoNumber(PC);
+
+            if (Number.isNaN(changed_amount)) {
+                changed_amount = 0;
+                PC = '-1';
+            }
+            response['change_price'] = convertIntoMoneyFormat(changed_amount);
+            response['change_percentage'] = ((changed_amount / convertIntoNumber(PC)) * 100).toFixed(2) + '%';
+            let size = MarketDataStructure[MarketDataStructure.length - 1].end;
+            return {
+                livedata: response,
+                size: size
+            };
+        }
+
+        function getMultiplier(exchange) {
+            switch (exchange) {
+                case 1:
+                    return 100;
+                case 2:
+                    return 100
+                case 3:
+                    return 10000000
+                case 4:
+                    return 100
+                case 6:
+                    return 100
+                case 7:
+                    return 100
+            }
+        }
+
+        function convertIntoFormat(data, a, b, type, multiplier) {
+            if (type === 'p') {
+                return (parseInt(buf2hex(data.slice(a, b)), 16) / multiplier);
+            }
+            else if (type === 't') {
+                return getTimeStamp(parseInt(buf2hex(data.slice(a, b)), 16))
+            }
+            else {
+                return (parseInt(buf2hex(data.slice(a, b)), 16));
+            }
+        }
+
+        function convertIntoNumber(num) {
+            // return parseFloat(num.replace(/,/g,''));
+            return num
+        }
+
+        function convertIntoMoneyFormat(num) {
+            return parseFloat(num).toLocaleString('en-IN', {
+                minimumFractionDigits: 2,
+                currency: 'INR'
+            });
+        }
+
+        function buf2hex(buffer) { // buffer is an ArrayBuffer
+            return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
+        }
+
+        function getTimeStamp(unix) {
+            var date = new Date(unix * 1000);
+            var hours = date.getHours();
+            var minutes = "0" + date.getMinutes();
+            var seconds = "0" + date.getSeconds();
+            var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+            return formattedTime;
+        }
+
+        function FetchLiveData() {
+
+            let requestarray = [];
+            exchangelist.map((exchange) => {
+                requestarray.push([exchange.exchange_code, exchange.exchange_token]);
+            });
+
+            // websocket logic
+            const ws = new WebSocket("wss://masterswift-beta.mastertrust.co.in/ws/v1/feeds?access_token=qaoSOB-l4jmwXlxlucY4ZTKWsbecdrBfC7GoHjCRy8E.soJkcdbrMmew-w1C0_KZ2gcQBUPLlPTYNbt9WLJN2g8");
+
+            let index = 0;
+
+            ws.onopen = () => {
+                console.log('connection done');
+                ws.send(JSON.stringify({ "a": "subscribe", "v": requestarray, "m": "marketdata" }))
+
+                setInterval(() => {
+                    ws.send(JSON.stringify({ "a": "h", "v": requestarray, "m": "" }))
+                }, 10 * 100)
+
+            }
+
+            ws.onmessage = (response) => {
+
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(response.data);
+
+
+                reader.onloadend = (event) => {
+                    let data = new Uint8Array(reader.result);
+                    if (response.data.size >= 86) {
+                        convertedData = readMarketData(data);
+                        const livedata = convertedData.livedata;
+                        let exchange_stock = exchangelist.find((exchange) => exchange.exchange_token == livedata.instrument_token);
+                        if (exchange_stock != -1) {
+                            exchange_stock = exchange_stock.exchange_stock.toLowerCase().replace(' ', '_');
+                            if (livedata.last_traded_price === livedata.close_price) {
+                                let pclose = parseFloat(indexvalues[exchange_stock + '_1']);
+
+                                if (pclose === livedata.close_price) {
+                                    pclose = indexvalues[exchange_stock + '_2'];
+                                }
+
+                                livedata.close_price = pclose;
+
+
+                                let changed_amount = convertIntoNumber(livedata.last_traded_price) - convertIntoNumber(pclose);
+
+                                if (Number.isNaN(changed_amount)) {
+                                    changed_amount = 0;
+                                    pclose = '-1';
+                                }
+                                livedata.change_price = convertIntoMoneyFormat(changed_amount);
+                                livedata.change_percentage = ((changed_amount / convertIntoNumber(pclose)) * 100).toFixed(2) + '%';
+
+                            }
+
+                            let priceclass = parseFloat(livedata.last_traded_price - livedata.close_price) < 0 ? 'negative' : 'positive';
+                            $(`#${exchange_stock}`).find('.indexlevel').html(convertIntoPriceFormat(livedata.last_traded_price));
+                            $(`#${exchange_stock}`).find('.indexlevelper').addClass(priceclass).html(livedata.change_percentage + '&nbsp;(' + convertIntoPriceFormat(livedata.change_price) + ')');
+
+                            // ws.send(JSON.stringify({"a": "unsubscribe", "v": requestarray, "m": "marketdata"}))
+                        }
+                    }
+                }
+            }
+
+            ws.onerror = (error) => {
+                console.log(error)
+            };
+        }
+
+        function DigitScrollAnimation(number, size) {
+            return number.toString().split('').map((n, i) => {
+                // let returnstring = Digit(n);
+                return Digit(n, size);
+            });
+        }
+
+        function Digit(digit, size) {
+            let digits = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+            let transform = 0;
+            let isDigit = false;
+            if (digits.filter(d => d == digit).length > 0) {
+                isDigit = true;
+                transform = size;
+            }
+
+            let returnstring = '';
+
+            returnstring += `<div class="price__digit" style="height : ${size}px;">`;
+            if (isDigit) {
+                returnstring += `<div class="price__digit__column" style="transform : translateY(${-(9 - digit) * transform}px)">`;
+                digits.map((d, i) => {
+                    if (d == digit) {
+                        returnstring += `<span class="digit__box" style="opacity:1;height:${size}px">${d}</span>`;
+                    }
+                    else {
+                        returnstring += `<span class="digit__box" style="opacity:0.2;height:${size}px">${d}</span>`;
+                    }
+                });
+                returnstring += '</div>';
+
+            }
+            else {
+                returnstring += `<div class="price__digit__column">
+                            <span class="digit__box" style="height:'${size}px'">${digit}</span>
+                        </div>`;
+            }
+
+            returnstring += '</div>';
+
+
+            return returnstring;
+        }
+
+        function convertIntoPriceFormat(num, frac = 2) {
+            if (num) {
+                return num.toLocaleString('en-IN', {
+                    minimumFractionDigits: frac,
+                    currency: 'INR'
+                });
+            }
+            else {
+                return num;
+            }
+
+        }
+
+        function ShowDateTime() {
+            var today = new Date();
+
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+            var dateTime = date + ' ' + time;
+
+            $('#current-time').text(dateTime)
+        }
+
+        FetchLiveData();
+
+        setInterval(() => {
+            ShowDateTime();
+        }, 1000);
+
+
+    });
+
+
+
+</script>
+
+</html>
