@@ -106,11 +106,12 @@ body {
   cursor: pointer;
   transition: 0.3s;
   background: #3179F5;
-  box-shadow: 1px 3px 5px #cccccc;
+  box-shadow: none;
 }
+.section1-header .login-button:hover { box-shadow: 0 0 0 6px rgba(167,139,250,0.15); }
 
 .section1-header .login-button:hover {
-  box-shadow: 1px 3px 5px #cccccc;
+  box-shadow: none;
 }
 
 .hero-section1 .section1-content {
@@ -701,6 +702,7 @@ a {
   height: 65px;
   margin: 0px;
   margin-top: 0px;
+  background: transparent !important;
 }
 
 .marketrates body {
@@ -1249,7 +1251,7 @@ a {
 .charttext {
   display: block;
   position: absolute;
-  color: rgba(1, 22, 39, 0.7);
+  color: var(--text, #e5e7eb);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: -0.5px;
@@ -1287,7 +1289,6 @@ a {
   display: flex;
   flex-wrap: wrap;
   height: fit-content;
-  /* padding-left: 15%; */
 }
 
 .rect3title {
@@ -1348,7 +1349,6 @@ a {
   border: double 1em transparent;
   border-radius: 30px;
   border: 3px solid rgba(1, 22, 39, 0.7);
-  /* border-image: linear-gradient(45deg, purple, orange) 1; */
 }
 
 .rect3body {
@@ -1367,9 +1367,9 @@ a {
 }
 
 .rect3bottombottom {
-  color: rgba(1, 22, 39, 0.7);
+  color: #fff;
   text-align: center;
-  text-shadow: 0px 4px 25px #ffffffcc;
+  text-shadow: none;
   font-family: Open Sans;
   font-size: 16px;
   font-style: normal;
@@ -1382,7 +1382,8 @@ a {
   flex-direction: revert;
   align-items: center;
   justify-content: flex-end;
-  border: 1px solid #e8e8e8;
+  border: 1px solid var(--border);
+  background: #3179F5;
   width: fit-content;
   margin: auto;
   margin-right: 0px;
@@ -1390,7 +1391,9 @@ a {
   padding: 7px 15px;
   border-radius: 15px;
   cursor: pointer;
+  box-shadow: none;
 }
+.rect3bottombottom:hover { box-shadow: 0 0 0 6px rgba(167,139,250,0.15); }
 
 .rect3bottombottom:hover {
   background-color: #f1f1f1;
@@ -1419,7 +1422,7 @@ a {
 .profilebox {
   display: flex;
   margin: auto;
-  background: #fafafa;
+  background: var(--card);
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
@@ -1427,8 +1430,11 @@ a {
   cursor: pointer;
   width: fit-content;
   height: fit-content;
-  box-shadow: 1px 3px 5px #cccccc;
+  box-shadow: none;
+  border: 1px solid var(--border);
+  transition: box-shadow .2s ease, transform .2s ease;
 }
+.profilebox:hover { box-shadow: 0 0 0 6px rgba(167,139,250,0.15); transform: translateY(-1px); }
 
 .profileboxright {
   font-size: 12px;
@@ -1460,7 +1466,6 @@ a {
   width: fit-content;
   flex-direction: column;
   text-align: center;
-  /* text-shadow: 0px 4px 25px #295b84; */
   font-family: Open Sans;
   font-size: 6rem;
   font-style: normal;
@@ -1701,11 +1706,12 @@ a {
 
 .box {
   position: relative;
-  background: #f1f1f1;
+  background: var(--card);
   height: 60px;
   transition: all .15s ease-in-out;
   border-radius: 15px;
   margin-top: 10px;
+  border: 1px solid var(--border);
 }
 
 .box::before {
@@ -1934,7 +1940,6 @@ input:checked+section.box .box-title:before {
     line-height: normal;
     letter-spacing: -0.6px;
     margin-left: 0px;
-    /* margin: auto; */
     margin-bottom: 0px;
   }
 
@@ -2230,7 +2235,7 @@ input:checked+section.box .box-title:before {
   .profilebox {
     display: flex;
     margin: auto;
-    background: #fafafa;
+    background: var(--card);
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
@@ -2238,6 +2243,7 @@ input:checked+section.box .box-title:before {
     cursor: pointer;
     width: 120px;
     height: fit-content;
+    border: 1px solid var(--border);
   }
 
   .recthreeright {
@@ -2272,7 +2278,6 @@ input:checked+section.box .box-title:before {
     width: 50%;
     text-align: left;
     flex-direction: column;
-    /* margin-top: 20%; */
     font-size: 14px;
     position: relative;
   }
@@ -2460,11 +2465,12 @@ input:checked+section.box .box-title:before {
 
   .box {
     position: relative;
-    background: #f1f1f1;
+    background: var(--card);
     height: max-content;
     transition: all .15s ease-in-out;
     border-radius: 15px;
     margin-top: 10px;
+    border: 1px solid var(--border);
   }
 
   .box-title {
@@ -2544,3 +2550,89 @@ input:checked+section.box .box-title:before {
     cursor: pointer;
   }
 }
+
+/* ==== THEME OVERRIDES: Dark Freelancer-like hero + gradient Investments ==== */
+:root {
+  --light-bg:#ffffff;
+  --light-text:#111827;
+  --light-card:#f5f7fb;
+  --light-border:#e5e7eb;
+  --dark-bg:#0A0F1E;
+  --dark-text:#e5e7eb;
+  --dark-card:#1a1333;
+  --dark-border:rgba(167,139,250,0.25);
+  --accent:#7C3AED;
+  --button:#3179F5;
+}
+
+/* default use system preference */
+html, body { background: var(--dark-bg); color: var(--dark-text); }
+@media (prefers-color-scheme: light) {
+  html, body { background: var(--light-bg); color: var(--light-text); }
+}
+
+/* checkbox-driven toggle: checked -> light mode */
+#theme-toggle{ position: fixed; top: 14px; right: 14px; width: 0; height: 0; opacity: 0; }
+.theme-toggle-label{
+  position: fixed; top: 10px; right: 10px; z-index: 2000; cursor: pointer;
+  background: linear-gradient(180deg, #2b1b54, #221843);
+  color: #fff; border: 1px solid var(--dark-border);
+  padding: 6px 10px; border-radius: 999px; font-size: 12px; user-select: none;
+  box-shadow: 0 0 0 rgba(124,58,237,0);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.theme-toggle-label:hover { box-shadow: 0 0 0 6px rgba(167,139,250,0.15); }
+.theme-toggle-label .toggle-sun { display: none; }
+#theme-toggle:checked + .theme-toggle-label .toggle-sun { display: inline; }
+#theme-toggle:checked + .theme-toggle-label .toggle-moon { display: none; }
+
+/* When checked -> Light Theme Vars on .app scope */
+#theme-toggle:checked ~ .app {
+  --bg: var(--light-bg); --text: var(--light-text); --card: var(--light-card); --border: var(--light-border);
+}
+/* When unchecked -> Dark Theme Vars */
+#theme-toggle:not(:checked) ~ .app {
+  --bg: var(--dark-bg); --text: var(--dark-text); --card: var(--dark-card); --border: var(--dark-border);
+}
+
+/* apply vars */
+.app, .hero-sections, .rect1, .rect2, .rect3, .rect4, .rect5, .rect6, .rect7 { background: var(--bg); color: var(--text); }
+a { color:#cbd5e1; }
+::selection { background:#A78BFA; color:#0B1020; }
+.nifty50 { background: transparent !important; }
+.hero-section1 {
+  background: radial-gradient(600px 600px at 15% 15%, rgba(139,92,246,0.18) 0, rgba(139,92,246,0) 60%),
+              radial-gradient(800px 800px at 85% 25%, rgba(124,58,237,0.16) 0, rgba(124,58,237,0) 60%),
+              linear-gradient(180deg, #120A24 0%, #0F0A1C 100%);
+  color: rgba(255,255,255,0.92);
+}
+.hero-section2 { background-color:#130e26; background-image:linear-gradient(180deg,#130e26 0%, #100b20 100%); color:#e8e8e8; }
+.rect1, .rect3, .rect4, .rect5, .rect6, .rect7 { background: var(--bg); }
+.topclientsdiv, .rect7inner, .chartarea { background: var(--card); border: 1px solid var(--border); }
+.section1-content .brand-name { color: rgba(255,255,255,0.92); }
+.section1-content .brand-info .tagline { color: #e5e7eb; }
+.brand-info .tagline .tagline2 { color: rgba(255,255,255,0.9); }
+.para, .excl, .private_wealth, .with_mutual, .deserve, .club, .five, .rs, .averagesize, .fifteen,
+.rect3title, .rect3bottom, .rect3bottombottom, .rect4firstrow, .rect4secondrow, .rect4thirdrow,
+.rect6firstrow, .rect7firstrow, .rect7secondrow, .rect7thirdrow, .rect7fourthrow { color: rgba(255,255,255,0.9); }
+
+/* Gradient text for the word "Investments" */
+.investments-purple { color:#A78BFA; }
+
+/* Buttons */
+.section1-header .login-button { background:#3179F5; border-color:#3179F5; box-shadow:none; }
+.section1-header .login-button:hover { box-shadow:none; filter:brightness(1.05); }
+.meet { background:#9F7AEA; border:1px solid rgba(167,139,250,0.4); }
+.meet:hover { background:#8B5CF6; }
+.slottext { color:#fff; }
+
+/* reduce extra gaps from fixed heights */
+.rect2, .rect3, .rect4, .rect6, .rect7 { height: auto !important; min-height: unset; }
+.rect3bottombottom { background:#3179F5; border:1px solid #3179F5; color:#fff; }
+.rect3bottombottom a { color:#fff; }
+.rect3bottombottom:hover { background:#2563eb; }
+
+.trade-types-main { color: #a5b4fc; }
+.service-box { background-color: #1a1333; color: #e8e8e8; border: 1px solid rgba(167,139,250,0.25); }
+.service-box:hover { background-image: linear-gradient(90deg, #2b1b54 0%, #221843 100%); color: white; }
+.disclaimer { color: #cbd5e1; }

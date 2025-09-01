@@ -1,12 +1,13 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    color: #011627;
+    color: rgba(255,255,255,0.92);
     box-sizing: border-box;
     width: 100%;
     overflow-x: hidden;
     margin: 0px;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(180deg, #0B1020 0%, #0A0F1E 100%);
 }
 
 /* width */
@@ -39,7 +40,7 @@ body {
   display: flex;
   margin: auto;
   font-size: 16px;
-  color: #011627e6;
+  color: #cbd5e1;
   width: 90%;
   margin-top: 10px;
   text-decoration: none;
@@ -48,7 +49,7 @@ body {
 }
 .page {
   margin: 0 auto;
-  background-color: white;
+  background-color: transparent;
 }
 .page {
   width: 90%;
@@ -57,21 +58,21 @@ body {
     font-size: var(--l);
     font-weight: 700;
     letter-spacing: -1px;
-    color: #011627;
+    color: #e8e8e8;
     margin: 32px 0 0px;
     width: 50%;
 }
 .subHeading{
     font-size: var(--m);
     font-weight: 600;
-    color: #011627;
+    color: #e8e8e8;
     margin: 13px 0 15px;
     width: fit-content;
 }
 .mainContent {
   font-size: 14px;
   font-weight: 400;
-  color: #011627;
+  color: #e5e7eb;
   margin-bottom: 5%;
   padding-right: 66%;
   line-height: 1.5;
@@ -90,7 +91,7 @@ body {
 }
 .imgContent{
       font-size:30px;
-      color: #011627;
+      color: #e8e8e8;
     }
 
 @media only screen and (max-width:768px){
@@ -98,17 +99,17 @@ body {
         width:80%;
     }
     .mainHeading {
-    color: #011627;
+    color: #e8e8e8;
     width: 100%;
     font-size: var(--xl);
     }
     .imgContent{
       font-size:26px;
       text-align: center;
-      color: #011627;
+      color: #e8e8e8;
     }
     .mainContent{
-    color: #011627;
+    color: #e5e7eb;
     margin-bottom: 50px;
     padding-right: 0%;
     }
@@ -119,7 +120,7 @@ body {
   .page {
     margin: 0 auto;
     max-width: 1250px;
-    background-color: white;
+    background-color: transparent;
     margin-top: 0vh;
     }
     #footer {

@@ -10,8 +10,6 @@
   <meta property="og:image" content="https://www.swiftfolios.com/static-content/assets/images/swiftfolios-logo.png">
   <meta property="og:image:width" content="150">
   <meta property="og:image:height" content="150">
-  <!-- <link rel="stylesheet" type="text/css" href="./static-content/style.css" />
-  <link rel="stylesheet" type="text/css" href="./static-content/mfhome.css" /> -->
   <link rel="stylesheet" type="text/css" href="./static-content/index.css" />
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -30,23 +28,17 @@
 </head>
 
 <body>
-  <div class="hero-sections">
+  <input type="checkbox" id="theme-toggle" aria-label="Toggle light/dark mode" />
+  <div class="hero-sections app" id="app">
     <div class="hero-section1">
       <div class="section1-header">
         <div class="header-left">
           <div class="logoleft">
             <img class="brand-logo" src="./static-content/assets/images/swiftfolios-logo.png" />
           </div>
-          <!-- <div class="page-links">
-            <a href="https://www.swiftfolios.com">
-              <div class="login-button"><span>Stocks</span></div>
-            </a>
-            <a href="https://www.swiftfolios.com/access/login">
-              <div class="login-button"><span>Mutual Funds</span></div>
-            </a>
-          </div> -->
         </div>
         <div class="accountlinks">
+          <label for="theme-toggle" class="theme-toggle-label" title="Toggle theme"></label>
           <a href="https://www.swiftfolios.com/access/signup">
             <div class="login-button">
               <span>Create Account</span>
@@ -61,13 +53,8 @@
       </div>
       <div class="section1-content">
         <div class="nifty50">
-          <iframe class="marketrates" id="marketrates" src="./static-content/marketrates.html"></iframe>
+          <iframe class="marketrates" id="marketrates" src="./static-content/marketrates.html" style="background-color: transparent;" frameborder="0"></iframe>
         </div>
-        <!-- <div class="brand-logo-name">
-          <p class="brand-name">
-            Investments that work for you!
-          </p>
-        </div> -->
         <div class="brand-logo-name">
           <p class="brand-name">
             <span id="typed-text"></span>
@@ -160,7 +147,6 @@
                 <img src="./static-content/homepageImages/MM.jpg" />
                 <div class="rs"><span>Rs. 50+ Lacs<br>Ahmedabad</span></div>
               </div>
-              <!-- <div class="rs"><span>Rs. 30+ Lacs, Ahmedabad</span></div> -->
             </div>
             <div class="averagesize">Average account size- Rs. 20 Lacs</div>
           </div>
@@ -170,17 +156,18 @@
             <div class="club">Building India’s&nbsp;<span class="five">5</span>&nbsp;Cr. club</div>
           </div>
         </div>
-        <div class="meet"><a href="https://calendly.com/swiftfolios/30min" target="_blank">
+        <div class="meet">
+          <a href="https://calendly.com/swiftfolios/30min" target="_blank" class="meet-link">
             <div class="meetimg">
               <img src="./static-content/homepageImages/meet.svg" />
             </div>
             <div class="slottext">Book an introductory call</div>
-        </div></a>
+          </a>
+        </div>
       </div>
     </div>
     <div class="rect2" id="rect2">
       <div class="content">
-        <!-- <p class="content__container__text">True</p> -->
         <div class="content__container">
           <ul class="content__container__list">
             <li class="content__container__list__item">Transparency</li>
@@ -329,9 +316,12 @@
         </section>
         <input type="radio" name="accordion" id="acc-close" />
       </nav>
-      <div class="rect6secondrow"><a
-          href="https://api.whatsapp.com/send?phone=918160080658&amp;text=I%20need%20help%20with%20managing%20my%20wealth.%20Please%20get%20in%20touch%20with%20me%20at%20the%20earliest."
-          target="_blank"><img src="./static-content/homepageImages/whatsapp.svg"><span>Reach Us</a></span></div>
+      <div class="rect6secondrow">
+        <a href="https://api.whatsapp.com/send?phone=918160080658&amp;text=I%20need%20help%20with%20managing%20my%20wealth.%20Please%20get%20in%20touch%20with%20me%20at%20the%20earliest." target="_blank">
+          <img src="./static-content/homepageImages/whatsapp.svg" alt="WhatsApp">
+          <span>Reach Us</span>
+        </a>
+      </div>
     </div>
     <div class="rect7" id="rect7">
       <div class="rect7inner">
@@ -439,7 +429,6 @@
       const fadeOut = 1000;  // ms to fade back to #fafafa
       const total = fadeIn + fadeOut;
 
-      // Build spans once (better performance & avoids timing issues)
       container.innerHTML = items.map(i => `<span>${i}</span>`).join(' . ');
       const spans = Array.from(container.querySelectorAll('span'));
 
@@ -447,28 +436,19 @@
       let prev = null;
 
       function cycle() {
-        // clear previous highlight (if any)
         if (prev !== null) spans[prev].classList.remove('highlight');
-
         const current = spans[index];
-
-        // Ensure the browser paints the base color first:
-        // requestAnimationFrame -> force reflow -> then add class to trigger transition
         requestAnimationFrame(() => {
-          void current.offsetWidth;      // FORCE reflow (ensures prior style applied)
-          current.classList.add('highlight'); // triggers fade-in
+          void current.offsetWidth;
+          current.classList.add('highlight');
         });
-
-        // After fadeIn ms, remove the class to fade back out
         setTimeout(() => {
           current.classList.remove('highlight');
         }, fadeIn);
-
         prev = index;
         index = (index + 1) % spans.length;
       }
 
-      // Small initial delay so initial DOM paint happens before the first cycle
       setTimeout(() => {
         cycle();
         setInterval(cycle, total);
@@ -495,7 +475,6 @@
     const imgEl = $(".topclientsimg img");
     const textEl = $(".rs span");
 
-    // ✅ Preload images
     images.forEach(src => {
       const img = new Image();
       img.src = src;
@@ -503,11 +482,8 @@
 
     function changeContent() {
       if (document.visibilityState === 'hidden') return;
-
-      // Fade out image + text
       imgEl.fadeOut(500);
       textEl.fadeOut(500, () => {
-        // Update after fade-out completes
         i = (i + 1) % images.length;
         imgEl.attr("src", images[i]).fadeIn(500);
         textEl.html(text[i]).fadeIn(500);
@@ -519,7 +495,7 @@
   <script>
     let pos = "";
     let al = "";
-    let charttextdescriptions = ""; // stores HTML list
+    let charttextdescriptions = "";
 
     $(document).ready(function () {
       if ($(window).width() < 1050) {
@@ -544,7 +520,7 @@
     let CHART_REF = false;
 
     $(document).ready(function () {
-      profile1(); // default load profile1
+      profile1();
     });
 
     function removeborder() {
@@ -553,7 +529,6 @@
       }
     }
 
-    // helper: converts array to HTML <ul>
     function toHTMLList(arr) {
       return "<ul><li>" + arr.join("</li><li>") + "</li></ul>";
     }
@@ -584,7 +559,7 @@
 
       removeborder();
       document.getElementById("profile2").style.border = "1px solid #b66ced";
-      drawChart([50, 30, 10, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([50, 30, 10, 10], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
     function profile3() {
@@ -596,7 +571,7 @@
 
       removeborder();
       document.getElementById("profile3").style.border = "1px solid blue";
-      drawChart([30, 40, 20, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([30, 40, 20, 10], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
     function profile4() {
@@ -608,7 +583,7 @@
 
       removeborder();
       document.getElementById("profile4").style.border = "1px solid #67d098";
-      drawChart([10, 50, 20, 20], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([10, 50, 20, 20], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
     function profile5() {
@@ -620,7 +595,7 @@
 
       removeborder();
       document.getElementById("profile5").style.border = "1px solid yellow";
-      drawChart([40, 30, 20, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([40, 30, 20, 10], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
     function profile6() {
@@ -632,19 +607,20 @@
 
       removeborder();
       document.getElementById("profile6").style.border = "1px solid orange";
-      drawChart([40, 20, 10, 30], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([40, 20, 10, 30], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
   </script>
-  <!-- Pie Chart -->
   <script>
     function drawChart(percentageData, backgroundColours, chartLabels) {
-      Chart.defaults.color = 'rgba(1, 22, 39, 0.9)';
+      Chart.defaults.color = 'rgba(229, 231, 235, 1)';
       const ctx = document.getElementById('myChart');
       const data = {
         datasets: [{
           data: percentageData,
           backgroundColor: backgroundColours,
+          borderColor: '#1f2937',
+          borderWidth: 2,
           hoverOffset: 5,
         }],
         labels: chartLabels
@@ -660,11 +636,11 @@
               display: false
             },
             tooltip: {
-              backgroundColor: '#f1f1f1',
-              borderColor: '#e8e8e8',
+              backgroundColor: '#111827',
+              borderColor: '#374151',
               borderWidth: 1,
-              titleColor: 'rgba(1, 22, 39, 0.9)',
-              bodyColor: 'rgba(1, 22, 39, 0.9)',
+              titleColor: '#e5e7eb',
+              bodyColor: '#e5e7eb',
               bodyFont: {
                 family: 'Open Sans',
               },
@@ -682,7 +658,7 @@
               align: al,
               borderRadius: 30,
               labels: {
-                color: 'rgb(1, 22, 39, 1)',
+                color: '#e5e7eb',
                 boxWidth: 20,
                 boxHeight: 20,
                 padding: 10,
@@ -706,21 +682,16 @@
           borderWidth: 0
         }
       };
-      //ctx.destroy();
       if (CHART_REF) {
         CHART_REF.destroy();
       }
 
       CHART_REF = new Chart(ctx, config);
-
-
-
-
     }
   </script>
 <script>
   const pulsetext = "Investments that work for you!";
-  const speed = 100; // typing speed in ms
+  const speed = 100;
   let increment = 0;
 
   function typeWriter() {
@@ -728,6 +699,9 @@
       const span = document.createElement("span");
       span.textContent = pulsetext.charAt(increment);
       span.classList.add("fade-in");
+      if (increment < "Investments".length) {
+        span.classList.add("investments-purple");
+      }
       document.getElementById("typed-text").appendChild(span);
       increment++;
       setTimeout(typeWriter, speed);
