@@ -106,11 +106,11 @@ body {
   cursor: pointer;
   transition: 0.3s;
   background: #3179F5;
-  box-shadow: 1px 3px 5px #cccccc;
+  box-shadow: none;
 }
 
 .section1-header .login-button:hover {
-  box-shadow: 1px 3px 5px #cccccc;
+  box-shadow: none;
 }
 
 .hero-section1 .section1-content {
