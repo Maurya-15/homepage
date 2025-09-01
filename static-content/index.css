@@ -295,7 +295,9 @@ a {
 .hero-sections .hero-footer {
   padding: 0px 3%;
   height: 80px;
+  background:#000;
 }
+.hero-footer .footer-content p{ color:#fff; }
 
 .hero-footer .footer-line {
   width: 100%;
@@ -2606,12 +2608,14 @@ a { color: var(--text); }
               linear-gradient(180deg, #120A24 0%, #0F0A1C 100%);
   color: rgba(255,255,255,0.92);
 }
+#theme-toggle:checked ~ .app .hero-section1 { background:#ffffff; color: var(--light-text); }
 .hero-section2 { background-color:#130e26; background-image:linear-gradient(180deg,#130e26 0%, #100b20 100%); color:#e8e8e8; }
+#theme-toggle:checked ~ .app .hero-section2 { background-color:#fafafa; background-image:none; color: var(--light-text); }
 .rect1, .rect3, .rect4, .rect5, .rect6, .rect7 { background: var(--bg); }
 .topclientsdiv, .rect7inner, .chartarea { background: var(--card); border: 1px solid var(--border); }
-.section1-content .brand-name { color: rgba(255,255,255,0.92); }
-.section1-content .brand-info .tagline { color: #e5e7eb; }
-.brand-info .tagline .tagline2 { color: rgba(255,255,255,0.9); }
+.section1-content .brand-name { color: var(--text); }
+.section1-content .brand-info .tagline { color: var(--text); }
+.brand-info .tagline .tagline2 { color: var(--text); }
 .para, .excl, .private_wealth, .with_mutual, .deserve, .club, .five, .rs, .averagesize, .fifteen,
 .rect3title, .rect3bottom, .rect3bottombottom, .rect4firstrow, .rect4secondrow, .rect4thirdrow,
 .rect6firstrow, .rect7firstrow, .rect7secondrow, .rect7thirdrow, .rect7fourthrow { color: var(--text); }
