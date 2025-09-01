@@ -2614,7 +2614,7 @@ a { color: var(--text); }
 .brand-info .tagline .tagline2 { color: rgba(255,255,255,0.9); }
 .para, .excl, .private_wealth, .with_mutual, .deserve, .club, .five, .rs, .averagesize, .fifteen,
 .rect3title, .rect3bottom, .rect3bottombottom, .rect4firstrow, .rect4secondrow, .rect4thirdrow,
-.rect6firstrow, .rect7firstrow, .rect7secondrow, .rect7thirdrow, .rect7fourthrow { color: rgba(255,255,255,0.9); }
+.rect6firstrow, .rect7firstrow, .rect7secondrow, .rect7thirdrow, .rect7fourthrow { color: var(--text); }
 
 /* Gradient text for the word "Investments" */
 .investments-purple { color:#A78BFA; }
