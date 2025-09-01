@@ -29,10 +29,6 @@
 
 <body>
   <input type="checkbox" id="theme-toggle" aria-label="Toggle light/dark mode" />
-  <label for="theme-toggle" class="theme-toggle-label">
-    <span class="toggle-sun">☀</span>
-    <span class="toggle-moon">🌙</span>
-  </label>
   <div class="hero-sections app" id="app">
     <div class="hero-section1">
       <div class="section1-header">
@@ -42,6 +38,7 @@
           </div>
         </div>
         <div class="accountlinks">
+          <label for="theme-toggle" class="theme-toggle-label" title="Toggle theme"></label>
           <a href="https://www.swiftfolios.com/access/signup">
             <div class="login-button">
               <span>Create Account</span>
@@ -56,7 +53,7 @@
       </div>
       <div class="section1-content">
         <div class="nifty50">
-          <iframe class="marketrates" id="marketrates" src="./static-content/marketrates.html" style="background: transparent" allowtransparency="true"></iframe>
+          <iframe class="marketrates" id="marketrates" src="./static-content/marketrates.html" style="background-color: transparent;" frameborder="0"></iframe>
         </div>
         <div class="brand-logo-name">
           <p class="brand-name">
