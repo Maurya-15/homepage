@@ -2235,7 +2235,7 @@ input:checked+section.box .box-title:before {
   .profilebox {
     display: flex;
     margin: auto;
-    background: #fafafa;
+    background: var(--card);
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
@@ -2243,6 +2243,7 @@ input:checked+section.box .box-title:before {
     cursor: pointer;
     width: 120px;
     height: fit-content;
+    border: 1px solid var(--border);
   }
 
   .recthreeright {
