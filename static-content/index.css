@@ -295,7 +295,9 @@ a {
 .hero-sections .hero-footer {
   padding: 0px 3%;
   height: 80px;
+  background:#000;
 }
+.hero-footer .footer-content p{ color:#fff; }
 
 .hero-footer .footer-line {
   width: 100%;
@@ -2596,8 +2598,8 @@ html, body { background: var(--dark-bg); color: var(--dark-text); }
 }
 
 /* apply vars */
-.app, .hero-sections, .rect1, .rect2, .rect3, .rect4, .rect5, .rect6, .rect7 { background: var(--bg); color: var(--text); }
-a { color:#cbd5e1; }
+.app, .hero-sections, .rect1, .rect3, .rect4, .rect5, .rect6, .rect7 { background: var(--bg); color: var(--text); }
+a { color: var(--text); }
 ::selection { background:#A78BFA; color:#0B1020; }
 .nifty50 { background: transparent !important; }
 .hero-section1 {
@@ -2606,15 +2608,17 @@ a { color:#cbd5e1; }
               linear-gradient(180deg, #120A24 0%, #0F0A1C 100%);
   color: rgba(255,255,255,0.92);
 }
+#theme-toggle:checked ~ .app .hero-section1 { background:#ffffff; color: var(--light-text); }
 .hero-section2 { background-color:#130e26; background-image:linear-gradient(180deg,#130e26 0%, #100b20 100%); color:#e8e8e8; }
+#theme-toggle:checked ~ .app .hero-section2 { background-color:#fafafa; background-image:none; color: var(--light-text); }
 .rect1, .rect3, .rect4, .rect5, .rect6, .rect7 { background: var(--bg); }
 .topclientsdiv, .rect7inner, .chartarea { background: var(--card); border: 1px solid var(--border); }
-.section1-content .brand-name { color: rgba(255,255,255,0.92); }
-.section1-content .brand-info .tagline { color: #e5e7eb; }
-.brand-info .tagline .tagline2 { color: rgba(255,255,255,0.9); }
+.section1-content .brand-name { color: var(--text); }
+.section1-content .brand-info .tagline { color: var(--text); }
+.brand-info .tagline .tagline2 { color: var(--text); }
 .para, .excl, .private_wealth, .with_mutual, .deserve, .club, .five, .rs, .averagesize, .fifteen,
 .rect3title, .rect3bottom, .rect3bottombottom, .rect4firstrow, .rect4secondrow, .rect4thirdrow,
-.rect6firstrow, .rect7firstrow, .rect7secondrow, .rect7thirdrow, .rect7fourthrow { color: rgba(255,255,255,0.9); }
+.rect6firstrow, .rect7firstrow, .rect7secondrow, .rect7thirdrow, .rect7fourthrow { color: var(--text); }
 
 /* Gradient text for the word "Investments" */
 .investments-purple { color:#A78BFA; }
@@ -2627,12 +2631,31 @@ a { color:#cbd5e1; }
 .slottext { color:#fff; }
 
 /* reduce extra gaps from fixed heights */
-.rect2, .rect3, .rect4, .rect6, .rect7 { height: auto !important; min-height: unset; }
+.rect2, .rect3, .rect4, .rect6, .rect7 {  }
 .rect3bottombottom { background:#3179F5; border:1px solid #3179F5; color:#fff; }
 .rect3bottombottom a { color:#fff; }
 .rect3bottombottom:hover { background:#2563eb; }
 
 .trade-types-main { color: #a5b4fc; }
-.service-box { background-color: #1a1333; color: #e8e8e8; border: 1px solid rgba(167,139,250,0.25); }
-.service-box:hover { background-image: linear-gradient(90deg, #2b1b54 0%, #221843 100%); color: white; }
+.service-box { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+.service-box:hover { background:#3179F5; color:#fff; border-color:#3179F5; }
 .disclaimer { color: #cbd5e1; }
+
+/* Inline header theme toggle (left of Create Account) */
+.accountlinks { align-items: center; gap: 10px; }
+.accountlinks .theme-toggle-label{ position: static; width: 30px; height: 30px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: linear-gradient(180deg,#2b1b54,#221843); color: #fff; border: 1px solid var(--border); box-shadow: none; }
+.theme-toggle-label svg{ width:16px; height:16px; }
+.theme-toggle-label .toggle-sun{ display:none; }
+#theme-toggle:checked ~ .app .theme-toggle-label .toggle-sun{ display:inline-block; }
+#theme-toggle:checked ~ .app .theme-toggle-label .toggle-moon{ display:none; }
+
+/* Readability tweaks */
+.app .profileboxright, .app .box-title, .app .box-content, .app .arrows section .box-title { color: var(--text); }
+/* Accordion arrow color follows theme */
+.app .arrows section .box-title:before { color: rgba(0,0,0,0.4); }
+#theme-toggle:not(:checked) ~ .app .arrows section .box-title:before { color: rgba(229,231,235,0.8); }
+.app .rect6secondrow span { color: var(--text); }
+/* Cards in both themes */
+.profilebox { background: var(--card); border:1px solid var(--border); }
+.box { background: var(--card); border:1px solid var(--border); }
+.rect7inner, .topclientsdiv, .chartarea { background: var(--card); border:1px solid var(--border); }
