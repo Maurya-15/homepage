@@ -1250,7 +1250,7 @@ a {
 .charttext {
   display: block;
   position: absolute;
-  color: rgba(1, 22, 39, 0.7);
+  color: var(--text, #e5e7eb);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: -0.5px;
