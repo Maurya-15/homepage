@@ -2622,9 +2622,12 @@ a { color:#cbd5e1; }
 /* Buttons */
 .section1-header .login-button { background:#3179F5; border-color:#3179F5; box-shadow:none; }
 .section1-header .login-button:hover { box-shadow:none; filter:brightness(1.05); }
-.meet { background:#3179F5; border:1px solid #3179F5; }
-.meet:hover { background:#2563eb; }
+.meet { background:#9F7AEA; border:1px solid rgba(167,139,250,0.4); }
+.meet:hover { background:#8B5CF6; }
 .slottext { color:#fff; }
+
+/* reduce extra gaps from fixed heights */
+.rect2, .rect3, .rect4, .rect6, .rect7 { height: auto !important; min-height: unset; }
 .rect3bottombottom { background:#3179F5; border:1px solid #3179F5; color:#fff; }
 .rect3bottombottom a { color:#fff; }
 .rect3bottombottom:hover { background:#2563eb; }
