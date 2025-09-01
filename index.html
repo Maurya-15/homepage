@@ -636,12 +636,13 @@
       const textCol = getComputedStyle(root).getPropertyValue('--text').trim() || '#111827';
       Chart.defaults.color = textCol;
       const ctx = document.getElementById('myChart');
+      const isLight = document.getElementById('theme-toggle')?.checked === true;
       const data = {
         datasets: [{
           data: percentageData,
           backgroundColor: backgroundColours,
-          borderColor: '#1f2937',
-          borderWidth: 2,
+          borderColor: isLight ? 'transparent' : '#1f2937',
+          borderWidth: isLight ? 0 : 2,
           hoverOffset: 5,
         }],
         labels: chartLabels
@@ -657,8 +658,8 @@
               display: false
             },
             tooltip: {
-              backgroundColor: '#111827',
-              borderColor: '#374151',
+              backgroundColor: isLight ? '#ffffff' : '#111827',
+              borderColor: isLight ? '#e5e7eb' : '#374151',
               borderWidth: 1,
               titleColor: '#e5e7eb',
               bodyColor: textCol,
