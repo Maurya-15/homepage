@@ -2627,7 +2627,7 @@ a { color:#cbd5e1; }
 .slottext { color:#fff; }
 
 /* reduce extra gaps from fixed heights */
-.rect2, .rect3, .rect4, .rect6, .rect7 { height: auto !important; min-height: unset; }
+.rect2, .rect3, .rect4, .rect6, .rect7 {  }
 .rect3bottombottom { background:#3179F5; border:1px solid #3179F5; color:#fff; }
 .rect3bottombottom a { color:#fff; }
 .rect3bottombottom:hover { background:#2563eb; }
@@ -2636,3 +2636,16 @@ a { color:#cbd5e1; }
 .service-box { background-color: #1a1333; color: #e8e8e8; border: 1px solid rgba(167,139,250,0.25); }
 .service-box:hover { background-image: linear-gradient(90deg, #2b1b54 0%, #221843 100%); color: white; }
 .disclaimer { color: #cbd5e1; }
+
+/* Inline header theme toggle (left of Create Account) */
+.accountlinks { align-items: center; gap: 10px; }
+.accountlinks .theme-toggle-label{ position: static; width: 30px; height: 30px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: linear-gradient(180deg,#2b1b54,#221843); color: #fff; border: 1px solid var(--border); box-shadow: none; }
+.theme-toggle-label svg{ width:16px; height:16px; }
+.theme-toggle-label .toggle-sun{ display:none; }
+#theme-toggle:checked ~ .app .theme-toggle-label .toggle-sun{ display:inline-block; }
+#theme-toggle:checked ~ .app .theme-toggle-label .toggle-moon{ display:none; }
+
+/* Readability tweaks */
+.app .profileboxright, .app .box-title, .app .box-content, .app .arrows section .box-title { color: var(--text); }
+.app .arrows section .box-title:before { color: rgba(229,231,235,0.8); }
+.app .rect6secondrow span { color: var(--text); }
