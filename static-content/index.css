@@ -2598,8 +2598,8 @@ html, body { background: var(--dark-bg); color: var(--dark-text); }
 /* apply vars */
 .app, .hero-sections, .rect1, .rect2, .rect3, .rect4, .rect5, .rect6, .rect7 { background: var(--bg); color: var(--text); }
 a { color:#cbd5e1; }
-a { color:#cbd5e1; }
 ::selection { background:#A78BFA; color:#0B1020; }
+.nifty50 { background: transparent !important; }
 .hero-section1 {
   background: radial-gradient(600px 600px at 15% 15%, rgba(139,92,246,0.18) 0, rgba(139,92,246,0) 60%),
               radial-gradient(800px 800px at 85% 25%, rgba(124,58,237,0.16) 0, rgba(124,58,237,0) 60%),
@@ -2610,7 +2610,7 @@ a { color:#cbd5e1; }
 .rect1, .rect3, .rect4, .rect5, .rect6, .rect7 { background: var(--bg); }
 .topclientsdiv, .rect7inner, .chartarea { background: var(--card); border: 1px solid var(--border); }
 .section1-content .brand-name { color: rgba(255,255,255,0.92); }
-.section1-content .brand-info .tagline { color: rgba(255,255,255,0.75); }
+.section1-content .brand-info .tagline { color: #e5e7eb; }
 .brand-info .tagline .tagline2 { color: rgba(255,255,255,0.9); }
 .para, .excl, .private_wealth, .with_mutual, .deserve, .club, .five, .rs, .averagesize, .fifteen,
 .rect3title, .rect3bottom, .rect3bottombottom, .rect4firstrow, .rect4secondrow, .rect4thirdrow,
