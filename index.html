@@ -12,7 +12,6 @@
   <meta property="og:image:height" content="150">
   <link rel="stylesheet" type="text/css" href="./static-content/index.css" />
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
@@ -29,7 +28,12 @@
 </head>
 
 <body>
-  <div class="hero-sections">
+  <input type="checkbox" id="theme-toggle" aria-label="Toggle light/dark mode" />
+  <label for="theme-toggle" class="theme-toggle-label">
+    <span class="toggle-sun">☀</span>
+    <span class="toggle-moon">🌙</span>
+  </label>
+  <div class="hero-sections app" id="app">
     <div class="hero-section1">
       <div class="section1-header">
         <div class="header-left">
