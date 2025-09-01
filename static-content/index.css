@@ -2541,22 +2541,41 @@ input:checked+section.box .box-title:before {
 }
 
 /* ==== THEME OVERRIDES: Dark Freelancer-like hero + gradient Investments ==== */
+html, body { background:#0A0F1E; color: rgba(255,255,255,0.92); }
+a { color:#cbd5e1; }
 .hero-section1 {
   background: radial-gradient(480px 480px at 10% 15%, rgba(99,102,241,0.18) 0, rgba(99,102,241,0) 60%),
               radial-gradient(640px 640px at 85% 25%, rgba(124,58,237,0.16) 0, rgba(124,58,237,0) 60%),
               linear-gradient(180deg, #0B1020 0%, #0A0F1E 100%);
   color: rgba(255,255,255,0.92);
 }
+.hero-section2 { background-color:#0f1426; background-image:linear-gradient(180deg,#0f1426 0%, #0e1322 100%); color:#e8e8e8; }
+.rect1, .rect3, .rect4, .rect5, .rect6, .rect7 { background: linear-gradient(180deg,#0f1426 0%,#0e1322 100%); }
+.topclientsdiv, .rect7inner, .chartarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); }
 .section1-content .brand-name { color: rgba(255,255,255,0.92); }
 .section1-content .brand-info .tagline { color: rgba(255,255,255,0.75); }
 .brand-info .tagline .tagline2 { color: rgba(255,255,255,0.9); }
+.para, .excl, .private_wealth, .with_mutual, .deserve, .club, .five, .rs, .averagesize, .fifteen,
+.rect3title, .rect3bottom, .rect3bottombottom, .rect4firstrow, .rect4secondrow, .rect4thirdrow,
+.rect6firstrow, .rect7firstrow, .rect7secondrow, .rect7thirdrow, .rect7fourthrow { color: rgba(255,255,255,0.9); }
 
+/* Gradient text for the word "Investments" */
 .gradient-investments {
   background-image: linear-gradient(90deg, #7C3AED 0%, #60A5FA 50%, #22D3EE 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
+/* Buttons */
+.section1-header .login-button { background:#3179F5; border-color:#3179F5; box-shadow:none; }
+.section1-header .login-button:hover { box-shadow:none; filter:brightness(1.05); }
+.meet { background:#3179F5; border:1px solid #3179F5; }
+.meet:hover { background:#2563eb; }
+.slottext { color:#fff; }
+.rect3bottombottom { background:#3179F5; border:1px solid #3179F5; color:#fff; }
+.rect3bottombottom a { color:#fff; }
+.rect3bottombottom:hover { background:#2563eb; }
 
 .trade-types-main { color: #a5b4fc; }
 .service-box { background-color: #0b1229; color: #e8e8e8; border: 1px solid rgba(255,255,255,0.06); }
