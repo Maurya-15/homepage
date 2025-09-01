@@ -1,6 +1,6 @@
 body {
-	background: white;
-	color: rgba(1, 22, 39, 0.9);
+	background: linear-gradient(180deg, #0B1020 0%, #0A0F1E 100%);
+	color: rgba(255, 255, 255, 0.92);
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	letter-spacing: -0.5px;
@@ -42,7 +42,7 @@ font-family: 'Roboto Mono', monospace;*/
 	border: none;
 	margin: 0px;
 	cursor: pointer;
-	box-shadow: 1px 3px 5px #e8e8e8;
+	box-shadow: none;
 }
 
 .container {
@@ -88,7 +88,7 @@ font-family: 'Roboto Mono', monospace;*/
 #q6 #options div:hover span,
 #q11 #options div:hover span,
 #q12 #options div:hover span {
-	color: rgba(1, 22, 39, 0.9);
+	color: rgba(255,255,255,0.92);
 }
 
 #q1 #options div:active span,
@@ -97,11 +97,11 @@ font-family: 'Roboto Mono', monospace;*/
 #q6 #options div:active span,
 #q11 #options div:active span,
 #q12 #options div:active span {
-	color: rgba(1, 22, 39, 0.9);
+	color: rgba(255,255,255,0.92);
 }
 
 #options div:hover {
-	background: #f1f1f1;
+	background: rgba(255,255,255,0.08);
 	font-weight: 500;
 	transition: all 0.5s;
 	border-radius: 10px;
@@ -123,13 +123,13 @@ h1 div {
 	display: flex;
 	margin: auto;
 	justify-content: left;
-	background: white;
+	background: transparent;
 }
 
 #buttons span,
 #exit {
 	background: none;
-	color: rgba(1, 22, 39, 0.9);
+	color: rgba(255,255,255,0.9);
 	font-size: 20px;
 	padding: 5px 10px;
 	border-radius: 3px;
@@ -171,22 +171,22 @@ table td {
 table tr {
 	font-size: 14px;
 	font-weight: 600;
-	color: rgba(1, 22, 39, 0.9);
+	color: rgba(229, 231, 235, 1);
 }
 
 table {
 	width: 100%;
 	border-spacing: 0;
 	padding: 0px;
-	border: 0.5px solid #e8e8e8;
+	border: 0.5px solid rgba(255,255,255,0.12);
 	border-radius: 10px;
 	margin: 15px 0;
 	padding: 10px;
 }
 
 table tr:nth-of-type(1) {
-	background-color: white;
-	color: rgba(1, 22, 39, 0.9);
+	background-color: rgba(255,255,255,0.06);
+	color: rgba(229, 231, 235, 1);
 }
 
 @media only screen and (max-width: 1200px) {
