@@ -52,7 +52,7 @@
       </div>
       <div class="section1-content">
         <div class="nifty50">
-          <iframe class="marketrates" id="marketrates" src="./static-content/marketrates.html"></iframe>
+          <iframe class="marketrates" id="marketrates" src="./static-content/marketrates.html" style="background: transparent" allowtransparency="true"></iframe>
         </div>
         <div class="brand-logo-name">
           <p class="brand-name">
@@ -558,7 +558,7 @@
 
       removeborder();
       document.getElementById("profile2").style.border = "1px solid #b66ced";
-      drawChart([50, 30, 10, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([50, 30, 10, 10], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
     function profile3() {
@@ -570,7 +570,7 @@
 
       removeborder();
       document.getElementById("profile3").style.border = "1px solid blue";
-      drawChart([30, 40, 20, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([30, 40, 20, 10], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
     function profile4() {
@@ -582,7 +582,7 @@
 
       removeborder();
       document.getElementById("profile4").style.border = "1px solid #67d098";
-      drawChart([10, 50, 20, 20], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([10, 50, 20, 20], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
     function profile5() {
@@ -594,7 +594,7 @@
 
       removeborder();
       document.getElementById("profile5").style.border = "1px solid yellow";
-      drawChart([40, 30, 20, 10], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([40, 30, 20, 10], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
     function profile6() {
@@ -606,18 +606,20 @@
 
       removeborder();
       document.getElementById("profile6").style.border = "1px solid orange";
-      drawChart([40, 20, 10, 30], ['#3179F5', '#00D3E0', '#9BF48A', '#F9F871'], labels);
+      drawChart([40, 20, 10, 30], ['#8B5CF6', '#7C3AED', '#6D28D9', '#A78BFA'], labels);
     }
 
   </script>
   <script>
     function drawChart(percentageData, backgroundColours, chartLabels) {
-      Chart.defaults.color = 'rgba(1, 22, 39, 0.9)';
+      Chart.defaults.color = 'rgba(229, 231, 235, 1)';
       const ctx = document.getElementById('myChart');
       const data = {
         datasets: [{
           data: percentageData,
           backgroundColor: backgroundColours,
+          borderColor: '#1f2937',
+          borderWidth: 2,
           hoverOffset: 5,
         }],
         labels: chartLabels
@@ -633,11 +635,11 @@
               display: false
             },
             tooltip: {
-              backgroundColor: '#f1f1f1',
-              borderColor: '#e8e8e8',
+              backgroundColor: '#111827',
+              borderColor: '#374151',
               borderWidth: 1,
-              titleColor: 'rgba(1, 22, 39, 0.9)',
-              bodyColor: 'rgba(1, 22, 39, 0.9)',
+              titleColor: '#e5e7eb',
+              bodyColor: '#e5e7eb',
               bodyFont: {
                 family: 'Open Sans',
               },
@@ -655,7 +657,7 @@
               align: al,
               borderRadius: 30,
               labels: {
-                color: 'rgb(1, 22, 39, 1)',
+                color: '#e5e7eb',
                 boxWidth: 20,
                 boxHeight: 20,
                 padding: 10,
@@ -696,8 +698,8 @@
       const span = document.createElement("span");
       span.textContent = pulsetext.charAt(increment);
       span.classList.add("fade-in");
-      if (increment < 11) {
-        span.classList.add("gradient-investments");
+      if (increment < "Investments".length) {
+        span.classList.add("investments-purple");
       }
       document.getElementById("typed-text").appendChild(span);
       increment++;
