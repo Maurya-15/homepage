@@ -8,11 +8,153 @@
   color-scheme: light dark;
   color: rgba(1, 22, 39, 0.7);
   background-color: #FFFFFF;
+
+  --background-color-light: #FFFFFF;
+  --text-color-light: rgba(1, 22, 39, 0.7);
+  --brand-name-color-light: rgba(1, 22, 39, 0.7);
+  --highlight-color: #3179F5;
+
+  --background-color-dark: #011627;
+  --text-color-dark: rgba(255, 255, 255, 0.8);
+  --brand-name-color-dark: white;
+}
+
+body.light-mode {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
+body.dark-mode {
+  background: linear-gradient(180deg, #011627 0%, #0A1424 100%);
+  color: var(--text-color-dark);
+  background-attachment: fixed;
+}
+
+/* Apply gradient when theme toggle is NOT checked (dark mode) */
+#theme-toggle:not(:checked) ~ .app {
+  background: linear-gradient(180deg, #011627 0%, #0A1424 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Make sections transparent in dark mode to show gradient */
+#theme-toggle:not(:checked) ~ .app .hero-section1,
+#theme-toggle:not(:checked) ~ .app .hero-section2,
+#theme-toggle:not(:checked) ~ .app .rect1,
+#theme-toggle:not(:checked) ~ .app .rect3,
+#theme-toggle:not(:checked) ~ .app .rect4,
+#theme-toggle:not(:checked) ~ .app .rect5,
+#theme-toggle:not(:checked) ~ .app .rect6,
+#theme-toggle:not(:checked) ~ .app .rect7,
+#theme-toggle:not(:checked) ~ .app .hero-footer {
+  background: transparent !important;
+}
+
+.hero-section1 {
+    background: linear-gradient(180deg, #011627 0%, #000000 100%);
+}
+
+.dark-mode .hero-section1 {
+    background: transparent;
+}
+
+.light-mode .section1-content .brand-name, 
+.light-mode .brand-info .tagline .tagline1, 
+.light-mode .brand-info .tagline .tagline2 {
+    color: var(--brand-name-color-light);
+}
+
+.dark-mode .section1-content .brand-name, 
+.dark-mode .brand-info .tagline .tagline1, 
+.dark-mode .brand-info .tagline .tagline2 {
+    color: var(--brand-name-color-dark);
+}
+
+.section1-content .brand-name .highlight {
+    color: var(--highlight-color);
+}
+
+.dark-mode .nifty50, .dark-mode .stock-container .indexname {
+    color: var(--text-color-dark);
+}
+
+.positive {
+    color: #00d72f;
+}
+
+.negative {
+    color: #e91e63;
+}
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-icon .sun-icon, .theme-icon .moon-icon {
+    display: none;
+}
+
+.light-mode .theme-icon .sun-icon {
+    display: block;
+    color: var(--text-color-light);
+}
+
+.dark-mode .theme-icon .moon-icon {
+    display: block;
+    color: var(--text-color-dark);
+
+}
+
+:root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+.dark-mode .hero-section2, 
+.dark-mode .topclientsdiv, 
+.dark-mode .rect3 {
+    background-color: transparent;
+    color: var(--text-color-dark);
+}
+
+.dark-mode .search input {
+    background-color: #0e2a40;
+    border-color: #0e2a40;
+    color: var(--text-color-dark);
+}
+
+.dark-mode .hero-footer {
+    background-color: transparent;
+}
+
+.dark-mode .hero-footer .footer-content p,
+.dark-mode .hero-footer .disclaimer,
+.dark-mode .footer-right .reach-us > p,
+.dark-mode .footer-right .backoffice-login > p {
+    color: #E5E7EB !important;
+}
+
+.light-mode .footer-left p {
+    color: var(--text-color-light);
+}
+
+.dark-mode .footer-left p {
+    color: var(--text-color-dark);
+}
+
+
+.dark-mode .trade-types-main, 
+.dark-mode .trade-types-main span, 
+.dark-mode .trade-types-main .dot {
+    color: var(--text-color-dark) !important;
+}
+
+.dark-mode .highlight {
+    color: var(--highlight-color) !important;
 }
 
 * {
@@ -316,7 +458,6 @@ a {
 .hero-sections .hero-footer {
   padding: 0px 3%;
   height: 80px;
-  background:#000;
 }
 
 /* Light mode override for footer */
@@ -1361,7 +1502,7 @@ a {
 .rect3bottom {
   color: rgba(1, 22, 39, 0.7);
   text-align: center;
-  text-shadow: 0px 4px 25px #ffffffcc;
+  text-shadow: 0px 1px 4px rgba(255, 255, 255, 0.15);
   font-family: Open Sans;
   font-size: 1rem;
   font-style: normal;
@@ -2297,7 +2438,7 @@ input:checked+section.box .box-title:before {
   .rect3bottom {
     color: rgba(1, 22, 39, 0.7);
     text-align: center;
-    text-shadow: 0px 4px 25px #ffffffcc;
+    text-shadow: 0px 1px 4px rgba(255, 255, 255, 0.15);
     font-family: Open Sans;
     font-size: 1rem;
     font-style: normal;
@@ -2566,7 +2707,7 @@ input:checked+section.box .box-title:before {
   .rect3bottombottom {
     color: rgba(1, 22, 39, 0.7);
     text-align: center;
-    text-shadow: 0px 4px 25px #ffffffcc;
+    text-shadow: 0px 1px 4px rgba(255, 255, 255, 0.15);
     font-family: Open Sans;
     font-size: 16px;
     font-style: normal;

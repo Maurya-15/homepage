@@ -359,6 +359,7 @@
       <div class="footer-line"></div>
       <div class="footer-content">
         <div class="footer-left">
+          
         </div>
         <div class="footer-right">
           <div class="reach-us">
@@ -438,6 +439,15 @@
 
   <script>
     AOS.init();
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('theme-toggle');
+      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      // Set the initial state of the toggle based on system preference
+      themeToggle.checked = !isDarkMode;
+    });
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
