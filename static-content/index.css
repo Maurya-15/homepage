@@ -263,8 +263,29 @@ body {
   transition: color 1s ease;
 }
 
+.trade-types-main span {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.trade-types-main .dot {
+  color: rgba(255, 255, 255, 0.92);
+}
+
 .highlight {
-  color: #3179F5;
+  color: #3179F5 !important;
+}
+
+/* Light mode - default gray, blink blue */
+#theme-toggle:checked ~ .app .trade-types-main span {
+  color: #011627B3 !important;
+}
+
+#theme-toggle:checked ~ .app .trade-types-main .dot {
+  color: #011627B3 !important;
+}
+
+#theme-toggle:checked ~ .app .highlight {
+  color: #3179F5 !important;
 }
 
 .search input {
@@ -297,7 +318,17 @@ a {
   height: 80px;
   background:#000;
 }
+
+/* Light mode override for footer */
+#theme-toggle:checked ~ .app .hero-footer {
+  background: #ffffff !important;
+}
 .hero-footer .footer-content p{ color:#fff; }
+
+/* Light mode override for footer text */
+#theme-toggle:checked ~ .app .hero-footer .footer-content p {
+  color: #011627B3 !important;
+}
 
 .hero-footer .footer-line {
   width: 100%;
@@ -327,6 +358,11 @@ a {
 
 .footer-right .reach-us>p,
 .footer-right .backoffice-login>p {
+  color: var(--text) !important;
+}
+
+#theme-toggle:checked ~ .app .footer-right .reach-us>p,
+#theme-toggle:checked ~ .app .footer-right .backoffice-login>p {
   color: rgba(1, 22, 39, 1);
   font-size: 12px;
   font-weight: 700;
@@ -1281,6 +1317,7 @@ a {
   width: 70%;
   margin: auto;
   margin-left: 0%;
+  background: transparent;
   height: 80%;
   margin-top: 3%;
   float: left;
@@ -2553,16 +2590,16 @@ input:checked+section.box .box-title:before {
   }
 }
 
-/* ==== THEME OVERRIDES: Dark Freelancer-like hero + gradient Investments ==== */
+/* ==== THEME OVERRIDES:  ==== */
 :root {
   --light-bg:#ffffff;
   --light-text:#111827;
   --light-card:#f5f7fb;
   --light-border:#e5e7eb;
-  --dark-bg:#0A0F1E;
+  --dark-bg:#0A1424;
   --dark-text:#e5e7eb;
-  --dark-card:#1a1333;
-  --dark-border:rgba(167,139,250,0.25);
+  --dark-card:#1a2333;
+  --dark-border:rgba(49,121,245,0.25);
   --accent:#7C3AED;
   --button:#3179F5;
 }
@@ -2577,8 +2614,8 @@ html, body { background: var(--dark-bg); color: var(--dark-text); }
 #theme-toggle{ position: fixed; top: 14px; right: 14px; width: 0; height: 0; opacity: 0; }
 .theme-toggle-label{
   position: fixed; top: 10px; right: 10px; z-index: 2000; cursor: pointer;
-  background: linear-gradient(180deg, #2b1b54, #221843);
-  color: #fff; border: 1px solid var(--dark-border);
+  background: var(--dark-bg);
+  color: #fff; border: none;
   padding: 6px 10px; border-radius: 999px; font-size: 12px; user-select: none;
   box-shadow: 0 0 0 rgba(124,58,237,0);
   transition: box-shadow .2s ease, transform .2s ease;
@@ -2603,16 +2640,17 @@ a { color: var(--text); }
 ::selection { background:#A78BFA; color:#0B1020; }
 .nifty50 { background: transparent !important; }
 .hero-section1 {
-  background: radial-gradient(600px 600px at 15% 15%, rgba(139,92,246,0.18) 0, rgba(139,92,246,0) 60%),
-              radial-gradient(800px 800px at 85% 25%, rgba(124,58,237,0.16) 0, rgba(124,58,237,0) 60%),
-              linear-gradient(180deg, #120A24 0%, #0F0A1C 100%);
+  background: radial-gradient(600px 600px at 15% 15%, rgba(49,121,245,0.18) 0, rgba(49,121,245,0) 60%),
+              radial-gradient(800px 800px at 85% 25%, rgba(59,130,246,0.16) 0, rgba(59,130,246,0) 60%),
+              linear-gradient(180deg, #0A1424 0%, #0C1A1C 100%);
   color: rgba(255,255,255,0.92);
 }
 #theme-toggle:checked ~ .app .hero-section1 { background:#ffffff; color: var(--light-text); }
-.hero-section2 { background-color:#130e26; background-image:linear-gradient(180deg,#130e26 0%, #100b20 100%); color:#e8e8e8; }
+.hero-section2 { background-color:#0A1424; background-image:linear-gradient(180deg,#0A1424 0%, #0C1A1C 100%); color:#e8e8e8; }
 #theme-toggle:checked ~ .app .hero-section2 { background-color:#fafafa; background-image:none; color: var(--light-text); }
 .rect1, .rect3, .rect4, .rect5, .rect6, .rect7 { background: var(--bg); }
-.topclientsdiv, .rect7inner, .chartarea { background: var(--card); border: 1px solid var(--border); }
+.topclientsdiv, .rect7inner { background: var(--card); border: none; }
+.chartarea { background: transparent; border: none; }
 .section1-content .brand-name { color: var(--text); }
 .section1-content .brand-info .tagline { color: var(--text); }
 .brand-info .tagline .tagline2 { color: var(--text); }
@@ -2621,17 +2659,92 @@ a { color: var(--text); }
 .rect6firstrow, .rect7firstrow, .rect7secondrow, .rect7thirdrow, .rect7fourthrow { color: var(--text); }
 
 /* Gradient text for the word "Investments" */
-.investments-purple { color:#A78BFA; }
+/* Light mode override for investments text */
+#theme-toggle:checked ~ .app .investments-purple { color: #011627B3 !important; }
+.investments-purple { color: #3179F5; }
 
 /* Buttons */
 .section1-header .login-button { background:#3179F5; border-color:#3179F5; box-shadow:none; }
 .section1-header .login-button:hover { box-shadow:none; filter:brightness(1.05); }
-.meet { background:#9F7AEA; border:1px solid rgba(167,139,250,0.4); }
-.meet:hover { background:#8B5CF6; }
+
+/* Light mode button style */
+#theme-toggle:checked ~ .app .section1-header .login-button {
+  background-color: transparent;
+  color: #3179F5;
+}
+
+#theme-toggle:checked ~ .app .section1-header .login-button:hover {
+  background-color: #3179F5;
+  color: #fff;
+}
+.meet { background: transparent; border: 1px solid #3179F5; }
+.meet:hover { background: #3179F5; }
+
+/* Light mode override for meet button */
+#theme-toggle:checked ~ .app .meet { 
+  background: #f1f1f1 !important; 
+  border: 1px solid #e5e7eb !important; 
+}
+#theme-toggle:checked ~ .app .meet:hover { 
+  background: #e5e7eb !important; 
+}
+#theme-toggle:checked ~ .app .slottext { 
+  color: #011627B3 !important; 
+}
 .slottext { color:#fff; }
 
+/* Light mode overrides - specific gray color */
+#theme-toggle:checked ~ .app .section1-content .brand-name,
+#theme-toggle:checked ~ .app .section1-content .brand-info .tagline,
+#theme-toggle:checked ~ .app .brand-info .tagline .tagline1,
+#theme-toggle:checked ~ .app .brand-info .tagline .tagline2,
+#theme-toggle:checked ~ .app .para,
+#theme-toggle:checked ~ .app .excl,
+#theme-toggle:checked ~ .app .private_wealth,
+#theme-toggle:checked ~ .app .with_mutual,
+#theme-toggle:checked ~ .app .deserve,
+#theme-toggle:checked ~ .app .club,
+#theme-toggle:checked ~ .app .five,
+#theme-toggle:checked ~ .app .rs,
+#theme-toggle:checked ~ .app .averagesize,
+#theme-toggle:checked ~ .app .fifteen,
+#theme-toggle:checked ~ .app .rect3title,
+#theme-toggle:checked ~ .app .rect3bottom,
+#theme-toggle:checked ~ .app .rect4firstrow,
+#theme-toggle:checked ~ .app .rect4secondrow,
+#theme-toggle:checked ~ .app .rect4thirdrow,
+#theme-toggle:checked ~ .app .rect6firstrow,
+#theme-toggle:checked ~ .app .rect7secondrow,
+#theme-toggle:checked ~ .app .rect7thirdrow,
+#theme-toggle:checked ~ .app .rect7fourthrow,
+#theme-toggle:checked ~ .app .section-header,
+#theme-toggle:checked ~ .app .tagline,
+#theme-toggle:checked ~ .app .tagline .tagline1,
+#theme-toggle:checked ~ .app .tagline .tagline2,
+#theme-toggle:checked ~ .app .service-title,
+#theme-toggle:checked ~ .app .service-desc,
+#theme-toggle:checked ~ .app .box-title,
+#theme-toggle:checked ~ .app .box-content,
+#theme-toggle:checked ~ .app .arrows section .box-title,
+#theme-toggle:checked ~ .app .profileboxright,
+#theme-toggle:checked ~ .app .rect6secondrow span,
+#theme-toggle:checked ~ .app .disclaimer {
+  color: #011627B3 !important;
+}
+
+/* Light mode background overrides */
+#theme-toggle:checked ~ .app,
+#theme-toggle:checked ~ .app .hero-sections,
+#theme-toggle:checked ~ .app .rect1,
+#theme-toggle:checked ~ .app .rect3,
+#theme-toggle:checked ~ .app .rect4,
+#theme-toggle:checked ~ .app .rect5,
+#theme-toggle:checked ~ .app .rect6,
+#theme-toggle:checked ~ .app .rect7 {
+  background: #ffffff !important;
+}
+
 /* reduce extra gaps from fixed heights */
-.rect2, .rect3, .rect4, .rect6, .rect7 {  }
 .rect3bottombottom { background:#3179F5; border:1px solid #3179F5; color:#fff; }
 .rect3bottombottom a { color:#fff; }
 .rect3bottombottom:hover { background:#2563eb; }
@@ -2643,7 +2756,8 @@ a { color: var(--text); }
 
 /* Inline header theme toggle (left of Create Account) */
 .accountlinks { align-items: center; gap: 10px; }
-.accountlinks .theme-toggle-label{ position: static; width: 30px; height: 30px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: linear-gradient(180deg,#2b1b54,#221843); color: #fff; border: 1px solid var(--border); box-shadow: none; }
+.accountlinks .theme-toggle-label{ position: static; width: 30px; height: 30px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: linear-gradient(180deg,#2b1b54,#221843); color: #fff; border: none; box-shadow: none; transition: background-color .3s ease; }
+#theme-toggle:checked ~ .app .accountlinks .theme-toggle-label { background: #fff; color: #221843; }
 .theme-toggle-label svg{ width:16px; height:16px; }
 .theme-toggle-label .toggle-sun{ display:none; }
 #theme-toggle:checked ~ .app .theme-toggle-label .toggle-sun{ display:inline-block; }
@@ -2658,4 +2772,5 @@ a { color: var(--text); }
 /* Cards in both themes */
 .profilebox { background: var(--card); border:1px solid var(--border); }
 .box { background: var(--card); border:1px solid var(--border); }
-.rect7inner, .topclientsdiv, .chartarea { background: var(--card); border:1px solid var(--border); }
+.rect7inner, .topclientsdiv { background: var(--card); border: none; }
+.chartarea { background: transparent; border: none; }

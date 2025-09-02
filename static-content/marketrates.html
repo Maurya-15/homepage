@@ -14,10 +14,33 @@
     <title>Air (Stocks)</title>
     <style type="text/css">
         html, body { background: transparent; }
+        
+        /* Dark mode - match parent theme background with blue gradient */
+        body:not(.light-theme) {
+            background: radial-gradient(600px 600px at 15% 15%, rgba(49,121,245,0.18) 0, rgba(49,121,245,0) 60%),
+                        radial-gradient(800px 800px at 85% 25%, rgba(59,130,246,0.16) 0, rgba(59,130,246,0) 60%),
+                        linear-gradient(180deg, #0A1424 0%, #0C1A1C 100%) !important;
+        }
+        
+        /* Light mode - white background */
+        body.light-theme {
+            background: #ffffff !important;
+        }
         * {
             color: rgba(255, 255, 255, 0.92);
             font-family: 'Open Sans', sans-serif !important;
             margin: 0px;
+        }
+
+        /* Theme-aware colors */
+        body.light-theme * {
+            color: #011627B3 !important;
+        }
+
+        body.light-theme .indexname,
+        body.light-theme .indexlevel,
+        body.light-theme .indexlevelper {
+            color: #011627B3 !important;
         }
 
         a {
@@ -91,6 +114,16 @@
             background: transparent;
         }
 
+        /* Dark mode - inherit parent background */
+        body:not(.light-theme) .firstpartbottom {
+            background: transparent !important;
+        }
+
+        /* Light mode - white background */
+        body.light-theme .firstpartbottom {
+            background: #ffffff !important;
+        }
+
         .firstpartbottom .indexname {
             font-size: 12px;
             font-weight: 700;
@@ -101,7 +134,7 @@
             font-size: 20px;
             font-weight: 700;
             width: 100%;
-            color: rgba(1, 22, 39, 0.7);
+            color: rgba(255, 255, 255, 0.92);
             letter-spacing: -1px;
             justify-content: flex-start;
         }

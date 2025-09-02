@@ -448,7 +448,7 @@
       const fadeOut = 1000;  // ms to fade back to #fafafa
       const total = fadeIn + fadeOut;
 
-      container.innerHTML = items.map(i => `<span>${i}</span>`).join(' . ');
+      container.innerHTML = items.map(i => `<span>${i}</span>`).join(' <span class="dot">.</span> ');
       const spans = Array.from(container.querySelectorAll('span'));
 
       let index = 0;
@@ -641,8 +641,8 @@
         datasets: [{
           data: percentageData,
           backgroundColor: backgroundColours,
-          borderColor: isLight ? 'transparent' : '#1f2937',
-          borderWidth: isLight ? 0 : 2,
+          borderColor: 'transparent',
+          borderWidth: 0,
           hoverOffset: 5,
         }],
         labels: chartLabels
@@ -680,7 +680,7 @@
               align: al,
               borderRadius: 30,
               labels: {
-                color: textCol,
+                color: isLight ? '#000000' : textCol,
                 boxWidth: 20,
                 boxHeight: 20,
                 padding: 10,
@@ -731,6 +731,28 @@
   }
 
   typeWriter();
+
+  // Theme communication to iframe
+  const themeToggle = document.getElementById('theme-toggle');
+  const marketratesIframe = document.getElementById('marketrates');
+  
+  function updateIframeTheme() {
+    if (marketratesIframe && marketratesIframe.contentDocument) {
+      const isLight = themeToggle.checked;
+      const iframeBody = marketratesIframe.contentDocument.body;
+      if (isLight) {
+        iframeBody.classList.add('light-theme');
+      } else {
+        iframeBody.classList.remove('light-theme');
+      }
+    }
+  }
+  
+  // Update iframe theme when toggle changes
+  themeToggle.addEventListener('change', updateIframeTheme);
+  
+  // Update iframe theme when iframe loads
+  marketratesIframe.addEventListener('load', updateIframeTheme);
 </script>
 </body>
 
