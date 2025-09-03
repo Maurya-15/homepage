@@ -406,27 +406,27 @@ body {
 }
 
 .trade-types-main span {
-  color: rgba(255, 255, 255, 0.92);
+  color: #E8E8E8;
 }
 
 .trade-types-main .dot {
-  color: rgba(255, 255, 255, 0.92);
+  color: #E8E8E8;
 }
 
-.highlight {
+.trade-types-main .highlight {
   color: #3179F5 !important;
 }
 
 /* Light mode - default gray, blink blue */
 #theme-toggle:checked ~ .app .trade-types-main span {
-  color: #011627B3 !important;
+  color: #E8E8E8 !important;
 }
 
 #theme-toggle:checked ~ .app .trade-types-main .dot {
-  color: #011627B3 !important;
+  color: #E8E8E8 !important;
 }
 
-#theme-toggle:checked ~ .app .highlight {
+#theme-toggle:checked ~ .app .trade-types-main .highlight {
   color: #3179F5 !important;
 }
 
@@ -541,6 +541,22 @@ a {
   transition: 0.3s;
 }
 
+/* Ensure text color is white on hover in light mode */
+#theme-toggle:checked ~ .app .service-box:hover,
+#theme-toggle:checked ~ .app .service-box:hover * {
+  color: white !important;
+}
+
+#theme-toggle:not(:checked) ~ .app .service-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#theme-toggle:not(:checked) ~ .app .service-box:hover {
+  background-color: #3179F5;
+  color: white;
+}
+
 .services {
   display: flex;
   margin: auto;
@@ -552,6 +568,11 @@ a {
 .service-title {
   font-weight: 700;
   letter-spacing: -0.5px;
+}
+
+.service-title:hover {
+  color: white;
+  transition: 0.3s;
 }
 
 .service-desc {
@@ -788,6 +809,15 @@ a {
     letter-spacing: -4px;
     color: #e8e8e8;
   }
+
+  /* Mobile: Pin theme toggle to top-right */
+  .theme-toggle-label,
+  .accountlinks .theme-toggle-label {
+    position: fixed !important;
+    top: 15px;
+    right: 15px;
+    z-index: 3000;
+  }
 }
 
 /* ---- Merged mfhome.css ---- */
@@ -882,6 +912,23 @@ a {
   margin: 0px;
   margin-top: 0px;
   background: transparent !important;
+}
+
+/* Force iframe and container transparency in dark mode */
+#theme-toggle:not(:checked) ~ .app .nifty50 {
+  background: transparent !important;
+}
+
+#theme-toggle:not(:checked) ~ .app .marketrates {
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+}
+
+/* Force iframe content background to be transparent */
+#theme-toggle:not(:checked) ~ .app iframe.marketrates {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 .marketrates body {
@@ -1969,6 +2016,18 @@ input:checked+.box .box-close {
   display: inline-block;
 }
 
+/* Dark mode: bluish glow for accordion cards instead of white */
+#theme-toggle:not(:checked) ~ .app .box {
+  /* subtle outline and ambient glow */
+  box-shadow: 0 0 0 1px rgba(49, 121, 245, 0.25), 0 8px 20px rgba(7, 15, 30, 0.6);
+  border-color: rgba(49, 121, 245, 0.35);
+}
+#theme-toggle:not(:checked) ~ .app input:checked + .box {
+  /* stronger glow on expand */
+  box-shadow: 0 0 0 2px rgba(49, 121, 245, 0.35), 0 10px 24px rgba(49, 121, 245, 0.20);
+  border-color: rgba(49, 121, 245, 0.45);
+}
+
 .arrows section .box-title {
   padding-left: 44px;
   width: calc(100% - 64px);
@@ -2761,10 +2820,15 @@ html, body { background: var(--dark-bg); color: var(--dark-text); }
   box-shadow: 0 0 0 rgba(124,58,237,0);
   transition: box-shadow .2s ease, transform .2s ease;
 }
+.theme-toggle-label svg,
+.accountlinks .theme-toggle-label svg { color: #3179F5; fill: #3179F5; stroke: #3179F5; }
 .theme-toggle-label:hover { box-shadow: 0 0 0 6px rgba(167,139,250,0.15); }
 .theme-toggle-label .toggle-sun { display: none; }
 #theme-toggle:checked + .theme-toggle-label .toggle-sun { display: inline; }
 #theme-toggle:checked + .theme-toggle-label .toggle-moon { display: none; }
+
+/* Dark mode: make Top clients heading white */
+#theme-toggle:not(:checked) ~ .app .topclientstext { color: #ffffff !important; }
 
 /* When checked -> Light Theme Vars on .app scope */
 #theme-toggle:checked ~ .app {
@@ -2823,7 +2887,7 @@ a { color: var(--text); }
 
 /* Light mode override for meet button */
 #theme-toggle:checked ~ .app .meet { 
-  background: #f1f1f1 !important; 
+  background:white !important; 
   border: 1px solid #e5e7eb !important; 
 }
 #theme-toggle:checked ~ .app .meet:hover { 
@@ -2833,6 +2897,16 @@ a { color: var(--text); }
   color: #011627B3 !important; 
 }
 .slottext { color:#fff; }
+
+/* Dark mode - make tagline1 white */
+#theme-toggle:not(:checked) ~ .app .brand-info .tagline .tagline1 {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* Dark mode - make emphasized words (e.g., 'service') white */
+#theme-toggle:not(:checked) ~ .app .b {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
 
 /* Light mode overrides - specific gray color */
 #theme-toggle:checked ~ .app .section1-content .brand-name,
@@ -2891,8 +2965,8 @@ a { color: var(--text); }
 .rect3bottombottom:hover { background:#2563eb; }
 
 .trade-types-main { color: #a5b4fc; }
-.service-box { background: var(--card); color: var(--text); border: 1px solid var(--border); }
-.service-box:hover { background:#3179F5; color:#fff; border-color:#3179F5; }
+.service-box {  color: var(--text); border: 1px solid var(--border); }
+.service-box:hover { background:#3179F5; color:white; border-color:#3179F5; }
 .disclaimer { color: #cbd5e1; }
 
 /* Inline header theme toggle (left of Create Account) */
@@ -2904,8 +2978,45 @@ a { color: var(--text); }
 #theme-toggle:checked ~ .app .theme-toggle-label .toggle-sun{ display:inline-block; }
 #theme-toggle:checked ~ .app .theme-toggle-label .toggle-moon{ display:none; }
 
+ /* Mobile: keep theme toggle fixed at top-right */
+ @media (max-width: 768px) {
+   #theme-toggle { position: fixed; top: 12px; right: 12px; width: 0; height: 0; opacity: 0; }
+   .theme-toggle-label,
+   .accountlinks .theme-toggle-label {
+     position: fixed !important;
+     top: 8px;
+     right: 8px;
+     z-index: 3000;
+   }
+ }
+
 /* Readability tweaks */
 .app .profileboxright, .app .box-title, .app .box-content, .app .arrows section .box-title { color: var(--text); }
+
+/* Global blue text selection */
+::selection { background: #3179F5; color: #ffffff; }
+::-moz-selection { background: #3179F5; color: #ffffff; }
+
+/* Selection override: Top clients labels/text should select with BLACK text */
+.app .topclientsdiv ::selection,
+.app .profileboxright ::selection,
+.app .rs::selection,
+.app .averagesize::selection {
+  background: #3179F5; /* keep same blue */
+  color: #000000;      /* black text when selected */
+}
+
+/* Firefox selection override */
+.app .topclientsdiv ::-moz-selection,
+.app .profileboxright ::-moz-selection,
+.app .rs::-moz-selection,
+.app .averagesize::-moz-selection {
+  background: #3179F5;
+  color: #000000;
+}
+
+/* Light mode: make rect2 tagline white */
+#theme-toggle:checked ~ .app .rect2 .tagline { color: #ffffff !important; }
 /* Accordion arrow color follows theme */
 .app .arrows section .box-title:before { color: rgba(0,0,0,0.4); }
 #theme-toggle:not(:checked) ~ .app .arrows section .box-title:before { color: rgba(229,231,235,0.8); }
@@ -2915,3 +3026,20 @@ a { color: var(--text); }
 .box { background: var(--card); border:1px solid var(--border); }
 .rect7inner, .topclientsdiv { background: var(--card); border: none; }
 .chartarea { background: transparent; border: none; }
+
+/* Force Top clients amount/city text to BLACK in all themes */
+.app .topclientsdiv .rs,
+.app .topclientsdiv .rs span { color: #000000 !important; }
+/* Also apply without relying on .app wrapper */
+.topclientsdiv .rs,
+.topclientsdiv .rs span { color: #000000 !important; }
+
+/* Beat theme ID selector: force black in both themes */
+#theme-toggle:checked ~ .app .topclientsdiv .rs,
+#theme-toggle:checked ~ .app .topclientsdiv .rs span { color: #000000 !important; }
+#theme-toggle:not(:checked) ~ .app .topclientsdiv .rs,
+#theme-toggle:not(:checked) ~ .app .topclientsdiv .rs span { color: #000000 !important; }
+
+/* Ensure inside the image wrapper too */
+.topclientsimg .rs,
+.topclientsimg .rs span { color: #000000 !important; text-shadow: none !important; }

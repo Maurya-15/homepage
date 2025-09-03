@@ -12,6 +12,28 @@
   <meta property="og:image:height" content="150">
   <link rel="stylesheet" type="text/css" href="./static-content/index.css" />
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+  <style>
+    /* Prevent dark flash on initial paint when user/system prefers light */
+    html.prefers-light .hero-section1,
+    html.prefers-light .nifty50,
+    html.prefers-light .marketrates { background:#ffffff !important; color:#011627B3; }
+  </style>
+  <script>
+    // Apply a light-preferring class before CSS and app JS run to avoid flash
+    (function(){
+      try {
+        var prefersLight = true; // default to light per requirement
+        if (window.matchMedia) {
+          // If system is explicitly dark, keep dark unless user toggled before (localStorage)
+          prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        }
+        var forcedLight = true; // start in light regardless (your request)
+        if (forcedLight || prefersLight) {
+          document.documentElement.classList.add('prefers-light');
+        }
+      } catch(e) {}
+    })();
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
@@ -28,7 +50,7 @@
 </head>
 
 <body>
-  <input type="checkbox" id="theme-toggle" aria-label="Toggle light/dark mode" />
+  <input type="checkbox" id="theme-toggle" aria-label="Toggle light/dark mode" checked />
   <div class="hero-sections app" id="app">
     <div class="hero-section1">
       <div class="section1-header">
@@ -72,7 +94,7 @@
       </div>
       <div class="section1-content">
         <div class="nifty50">
-          <iframe class="marketrates" id="marketrates" src="./static-content/marketrates.html" style="background-color: transparent;" frameborder="0"></iframe>
+          <iframe class="marketrates" id="marketrates" src="./static-content/marketrates.html" style="background: transparent !important; background-color: transparent !important;" frameborder="0"></iframe>
         </div>
         <div class="brand-logo-name">
           <p class="brand-name">
@@ -443,10 +465,41 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const themeToggle = document.getElementById('theme-toggle');
-      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const iframe = document.getElementById('marketrates');
+
+      function applyTheme() {
+        const isLight = themeToggle.checked;
+        document.body.classList.toggle('light-mode', isLight);
+        document.body.classList.toggle('dark-mode', !isLight);
+        document.documentElement.classList.toggle('light-mode', isLight);
+        document.documentElement.classList.toggle('dark-mode', !isLight);
+        document.documentElement.style.colorScheme = isLight ? 'light' : 'dark';
+      }
+
+      function sendThemeToIframe() {
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage({ type: 'theme', isLight: themeToggle.checked }, '*');
+        }
+      }
+
+      // Set initial theme based on system preference
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      themeToggle.checked = !prefersDark;
       
-      // Set the initial state of the toggle based on system preference
-      themeToggle.checked = !isDarkMode;
+      // Apply theme and sync with iframe
+      applyTheme();
+      sendThemeToIframe();
+      if (iframe) {
+        iframe.addEventListener('load', sendThemeToIframe);
+      }
+
+      themeToggle.addEventListener('change', () => {
+        applyTheme();
+        sendThemeToIframe();
+        if (CHART_REF) {
+          drawChart(LAST_PERCENTAGE_DATA, LAST_BACKGROUND_COLOURS, LAST_CHART_LABELS);
+        }
+      });
     });
   </script>
   <script>
@@ -547,6 +600,9 @@
     });
 
     let CHART_REF = false;
+    let LAST_PERCENTAGE_DATA = null;
+    let LAST_BACKGROUND_COLOURS = null;
+    let LAST_CHART_LABELS = null;
 
     $(document).ready(function () {
       profile1();
@@ -643,10 +699,14 @@
   <script>
     function drawChart(percentageData, backgroundColours, chartLabels) {
       const root = document.querySelector('.app');
-      const textCol = getComputedStyle(root).getPropertyValue('--text').trim() || '#111827';
+      const isLight = document.getElementById('theme-toggle')?.checked === true;
+      const textCol = isLight ? '#111827' : '#ffffff';
       Chart.defaults.color = textCol;
       const ctx = document.getElementById('myChart');
-      const isLight = document.getElementById('theme-toggle')?.checked === true;
+      // Store latest inputs
+      LAST_PERCENTAGE_DATA = percentageData;
+      LAST_BACKGROUND_COLOURS = backgroundColours;
+      LAST_CHART_LABELS = chartLabels;
       const data = {
         datasets: [{
           data: percentageData,
@@ -690,7 +750,7 @@
               align: al,
               borderRadius: 30,
               labels: {
-                color: isLight ? '#000000' : textCol,
+                color: isLight ? '#000000' : '#ffffff',
                 boxWidth: 20,
                 boxHeight: 20,
                 padding: 10,
@@ -711,14 +771,13 @@
           borderRadius: 15,
           cutout: cutpercentage,
           borderColor: 'none',
-          borderWidth: 0
-        }
+        },
       };
       if (CHART_REF) {
-        CHART_REF.destroy();
+        try { CHART_REF.destroy(); } catch(e) {}
       }
-
       CHART_REF = new Chart(ctx, config);
+      return CHART_REF;
     }
   </script>
 <script>

@@ -12,19 +12,66 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Air (Stocks)</title>
+    <script>
+        (function () {
+            try {
+                var isLight = true;
+                if (window.matchMedia) {
+                    isLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+                }
+                if (isLight) {
+                    document.documentElement.classList.add('light-theme');
+                }
+            } catch (e) { }
+        })();
+    </script>
     <style type="text/css">
-        html, body { background: transparent; }
+        html, body { 
+            background: transparent !important; 
+            margin: 0;
+            padding: 0;
+            color-scheme: dark;
+        }
         
-        /* Dark mode - match parent theme background with blue gradient */
-        body:not(.light-theme) {
-            background: radial-gradient(600px 600px at 15% 15%, rgba(49,121,245,0.18) 0, rgba(49,121,245,0) 60%),
-                        radial-gradient(800px 800px at 85% 25%, rgba(59,130,246,0.16) 0, rgba(59,130,246,0) 60%),
-                        linear-gradient(180deg, #0A1424 0%, #0C1A1C 100%) !important;
+        /* Default dark mode - completely transparent */
+        body:not(.light-theme),
+        body:not(.light-theme) *,
+        body:not(.light-theme) .firstpartbottom,
+        body:not(.light-theme) .marketstatus {
+            background: transparent !important;
+        }
+        
+        /* Force transparency regardless of browser theme */
+        html, body, 
+        *, *::before, *::after,
+        .firstpartbottom,
+        .marketstatus,
+        .rightdata,
+        div, span {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+        
+        /* Browser dark mode detection */
+        @media (prefers-color-scheme: dark) {
+            html, body, 
+            *, *::before, *::after {
+                background: transparent !important;
+                background-color: transparent !important;
+            }
         }
         
         /* Light mode - white background */
-        body.light-theme {
+        body.light-theme,
+        html.light-theme,
+        html.light-theme body {
             background: #ffffff !important;
+        }
+        
+        @media (prefers-color-scheme: light) {
+            body.light-theme {
+                background: #ffffff !important;
+            }
         }
         * {
             color: rgba(255, 255, 255, 0.92);
@@ -33,13 +80,16 @@
         }
 
         /* Theme-aware colors */
-        body.light-theme * {
+        body.light-theme *,
+        html.light-theme *,
+        html.light-theme .indexname,
+        html.light-theme .indexlevel,
+        html.light-theme .indexlevelper {
             color: #011627B3 !important;
         }
 
         body.light-theme .indexname,
-        body.light-theme .indexlevel,
-        body.light-theme .indexlevelper {
+        body.light-theme .indexlevel {
             color: #011627B3 !important;
         }
 
@@ -49,6 +99,14 @@
             font-weight: bold;
             font-size: 12px;
         }
+
+        /* Prevent purple visited links; keep consistent color */
+        a:visited { color: #3b82f6; }
+        a:hover { color: #60a5fa; }
+
+        /* Blue text selection inside iframe */
+        ::selection { background: #3179F5; color: #ffffff; }
+        ::-moz-selection { background: #3179F5; color: #ffffff; }
 
         /* width */
         ::-webkit-scrollbar {
@@ -76,14 +134,30 @@
         }
 
         .negative {
-            color: #e91e63;
+            color: #e91e63 !important;
             font-weight: 600;
+        }
+        
+        /* Ensure negative numbers are red in both themes */
+        .indexlevelper.negative,
+        body.light-theme .indexlevelper.negative,
+        body:not(.light-theme) .indexlevelper.negative {
+            color: #e91e63 !important;
+        }
 
+        /* Ensure positive numbers are green in both themes (override light theme text color) */
+        .indexlevelper.positive,
+        body.light-theme .indexlevelper.positive,
+        body:not(.light-theme) .indexlevelper.positive,
+        body.light-theme .positive {
+            color: #00d72f !important;
+            font-weight: 600;
         }
 
         .firstpartbottom .indexlevel {
             display: flex;
         }
+        
 
         .price__digit {
             overflow: hidden;
@@ -110,13 +184,17 @@
             align-items: center;
             height: 100%;
             border-radius: 5px;
-            text-align: center;
-            background: transparent;
+            text-align: left;
+            background: transparent !important;
+            flex-direction: row;
         }
 
-        /* Dark mode - inherit parent background */
-        body:not(.light-theme) .firstpartbottom {
+        /* Dark mode - force complete transparency */
+        body:not(.light-theme) .firstpartbottom,
+        body:not(.light-theme) .marketstatus,
+        body:not(.light-theme) .rightdata {
             background: transparent !important;
+            background-color: transparent !important;
         }
 
         /* Light mode - white background */
@@ -133,33 +211,36 @@
         .firstpartbottom .indexlevel {
             font-size: 20px;
             font-weight: 700;
-            width: 100%;
             color: rgba(255, 255, 255, 0.92);
             letter-spacing: -1px;
-            justify-content: flex-start;
+            display: block;
+            margin: 0;
         }
 
         .firstpartbottom .indexlevelper {
             font-size: 12px;
             font-weight: 700;
-            width: 100%;
-            margin-left: 5px;
+            margin: 0;
             letter-spacing: -0.5px;
+            display: block;
+            
         }
 
         .marketstatus .marketstatusbottom {
             display: flex;
             width: 100%;
-            align-items: center;
+            align-items: flex-start;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: left;
-
+            gap: 0px;
         }
 
         .rightdata {
             width: 100%;
             text-align: left;
+            display: flex;
+            flex-direction: column;
         }
 
         .marketstatus {
@@ -170,6 +251,8 @@
             display: flex;
             background: transparent;
             border: none;
+            flex-direction: row;
+            align-items: center;
         }
 
         .marketstatus .exchangeimagense,
@@ -215,9 +298,9 @@
             .marketstatus .marketstatusbottom {
                 display: flex;
                 width: 100%;
-                align-items: flex-end;
-                flex-direction: column;
-                justify-content: flex-end;
+                align-items: flex-start; /* keep left aligned on mobile */
+                flex-direction: column;  /* stack vertically */
+                justify-content: flex-start;
                 text-align: left;
             }
 
@@ -238,7 +321,7 @@
 
 
     <div class="time">As of <span id="current-time"></span></div>
-    <div class="firstpartbottom" style="background:transparent;border:none;">
+    <div class="firstpartbottom" style="background:transparent !important;border:none;">
 
 
     </div>
@@ -296,8 +379,8 @@
             <div class="rightdata">
                 <div class="indexname">${exchange.exchange_stock}</div>
                 <div class="marketstatusbottom">
-                    <div class="indexlevel">0.00</div>
-                    <div class="indexlevelper">0.00% (0.00)</div>
+                    <span class="indexlevel">0.00</span>
+                    <span class="indexlevelper">0.00% (0.00)</span>
                 </div>
             </div>
         </div>`)
